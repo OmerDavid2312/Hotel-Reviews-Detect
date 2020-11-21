@@ -3,8 +3,8 @@ BIU final project web application that contains:  backend, frontend, Scrapper an
 <hr>
 <h2>How to install</h2>
 
-*To install this project, Run the command : npm install <br>
-*Make sure to change ENV varibales by searching in project - process.env:
+*In order to install this project, Run the command : <b>npm install</b> <br>
+*Make sure to change ENV varibales by searching in project - <b>process.env</b>:
 <br>
 For example in : backend\controllers\users.js
 <hr>
