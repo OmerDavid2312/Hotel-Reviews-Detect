@@ -8,6 +8,8 @@ require('dotenv/config');
 const usersRoute = require('./routes/user');
 const weatherRoute = require('./routes/weather')
 const hotelRoute = require('./routes/hotel');
+const citiesRoute = require('./routes/city');
+
 
 const app = express();
 mongoose.connectMongo()
@@ -20,6 +22,8 @@ app.use(bodyparser.json());
 app.use('/api/users',usersRoute);
 app.use('/api/weather',weatherRoute);
 app.use('/api/hotels',hotelRoute);
+app.use('/api/cities',citiesRoute);
+
 
 
 app.listen(PORT,()=>{
