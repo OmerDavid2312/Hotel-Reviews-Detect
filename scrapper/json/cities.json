@@ -1,0 +1,67 @@
+[
+{
+    "name":"New York City",
+    "country":"United States",
+    "url":"https://www.tripadvisor.com/Tourism-g60763-New_York_City_New_York-Vacations.html"
+},
+{
+        "name":"Singapore",
+        "country":"Singapore",
+        "url":"https://www.tripadvisor.com/Tourism-g294265-Singapore-Vacations.html"
+},
+{
+        "name":"Rome",
+        "country":"Italy",
+        "url":"https://www.tripadvisor.com/Tourism-g187791-Rome_Lazio-Vacations.html"
+},
+{
+        "name":"Paris",
+        "country":"France",
+        "url":"https://www.tripadvisor.com/Tourism-g187147-Paris_Ile_de_France-Vacations.html"
+},
+{
+         "name":"Barcelona",
+         "country":"Spain",
+         "url":"https://www.tripadvisor.com/Tourism-g187497-Barcelona_Catalonia-Vacations.html"
+},
+{
+        "name":"Tokyo",
+        "country":"Japan",
+        "url":"https://www.tripadvisor.com/Tourism-g298184-Tokyo_Tokyo_Prefecture_Kanto-Vacations.html"
+},
+{
+        "name":"London",
+        "country":"England",
+        "url":"https://www.tripadvisor.com/Tourism-g186338-London_England-Vacations.html"
+},
+{
+        "name":"Bucharest",
+        "country":"Romania",
+        "url":"https://www.tripadvisor.com/Tourism-g294458-Bucharest-Vacations.html"
+},
+{
+        "name":"Vienna",
+        "country":"Austria",
+        "url":"https://www.tripadvisor.com/Tourism-g190454-Vienna-Vacations.html"
+},
+{
+        "name":"Prague",
+        "country":"Czech Republic",
+        "url":"https://www.tripadvisor.com/Tourism-g274707-Prague_Bohemia-Vacations.html"
+},
+{
+        "name":"Berlin",
+        "country":"Germany",
+        "url":"https://www.tripadvisor.com/Tourism-g187323-Berlin-Vacations.html"
+},
+{
+        "name":"Tel Aviv",
+        "country":"Israel",
+        "url":"https://www.tripadvisor.com/Tourism-g293984-Tel_Aviv_Tel_Aviv_District-Vacations.html"
+},
+{
+        "name":"Budapest",
+        "country":"Hungary",
+        "url":"https://www.tripadvisor.com/Tourism-g274887-Budapest_Central_Hungary-Vacations.html"
+}
+]

@@ -1,0 +1,22 @@
+{
+    "sitename":"tripadvisor",
+    "urlsSelector":"a[class*='property_title']",
+    "infoSelector":{
+        "name":"h1#HEADING",
+        "address":"div[data-placement-name='hotel_review_atf_hotel_info_web_component'] span._3ErVArsu.jke2_wbp:first-child",
+        "image":"img._1a4WY7aS",
+        "rating":"span.ui_bubble_rating",
+        "class":"svg._2aZlo29m",
+        "about":"div#ABOUT_TAB div.ssr-init-26f div._2f_ruteS._1bona3Pu._2-hMril5 > div.cPQsENeY",
+        "reviewCount":"div[data-placement-name='hotel_review_atf_hotel_info_web_component'] SPAN._33O9dg0j"
+    },
+    "main":{
+        "wrapperSelector":"div[data-test-target='reviews-tab'] div[data-test-target='HR_CC_CARD']",
+        "reviewsSelector":{
+            "title":"div[data-test-target='review-title']",
+            "rating":"span.ui_bubble_rating",
+            "desc":"q > span",
+            "user":"span > a[class*='ui_header_link']"
+        }
+    }
+}
