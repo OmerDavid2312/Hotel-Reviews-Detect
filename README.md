@@ -1,5 +1,5 @@
 # Hotel-Reviews-Detect
-BIU final project web application that contains: Scrapper, backend, frontend and ML algorithm<hr>
+BIU final project web application that contains:  backend, frontend, Scrapper and ML algorithm
 <hr>
 <h2>How to install</h2>
 
