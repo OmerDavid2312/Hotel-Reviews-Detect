@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { collection } = require('./Hotel');
 
 const userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
