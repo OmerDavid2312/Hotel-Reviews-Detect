@@ -13,5 +13,10 @@ For example in : backend\controllers\users.js
 <b>Server Side:</b> Node.js, Express, JWT, Mongo, Redis <br>
 <b>Scrapper:</b> Node.js, cheerio, puppeteer <br>
 <b>Machine Learning:</b> Python <br>
+<hr>
+<h2>Road Map</h2>
+<p>Implement ML with server (Flask) in order to communicate with the serverside</p>
+<p>Create client side with Angular</p>
+<p>Support & Deploy each module to the cloud (like heroku or AWS)</p>
 
 
