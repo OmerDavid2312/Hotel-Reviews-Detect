@@ -4,7 +4,7 @@ let data = '';
  // collect data from script
 python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
-    dataToSend = data.toString();
+    data = data.toString();
 });
 // in close event we are sure that stream from child process is closed
 python.on('close', (code) => {
