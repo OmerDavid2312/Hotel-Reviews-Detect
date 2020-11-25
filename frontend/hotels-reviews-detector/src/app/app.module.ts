@@ -6,8 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
+//components
 import { AppComponent } from './app.component';
+
+//services
+import { WeatherService } from './services/weather.service';
+import { HotelsService } from './services/hotels.service';
+import { CitiesService } from './services/cities.service';
+import { AuthService } from './services/auth.service';
+
+//interceptor
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +31,7 @@ import { AppComponent } from './app.component';
     HttpClientModule
 
   ],
-  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [,CitiesService,AuthService,WeatherService,HotelsService{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
