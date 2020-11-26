@@ -31,7 +31,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     HttpClientModule
 
   ],
-  providers: [,CitiesService,AuthService,WeatherService,HotelsService{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [,CitiesService,AuthService,WeatherService,HotelsService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
