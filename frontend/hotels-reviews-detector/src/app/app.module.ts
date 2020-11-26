@@ -8,7 +8,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //components
 import { AppComponent } from './app.component';
-
 //services
 import { WeatherService } from './services/weather.service';
 import { HotelsService } from './services/hotels.service';
@@ -17,6 +16,8 @@ import { AuthService } from './services/auth.service';
 
 //interceptor
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { ErrorInterceptor } from './interceptors/error-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     HttpClientModule
 
   ],
-  providers: [,CitiesService,AuthService,WeatherService,HotelsService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [,CitiesService,AuthService,WeatherService,HotelsService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
