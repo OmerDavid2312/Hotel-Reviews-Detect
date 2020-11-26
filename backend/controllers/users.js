@@ -6,7 +6,7 @@ const User = require('../models/User');
 
 exports.getUserDetails = async (req,res,next)=>{
     try {
-        const user = await User.findById(req.userData._id);
+        const user = await User.findById(req.userData._id).select('email name');
         if(user) {
             res.status(200).json({name:user.user});
         }
