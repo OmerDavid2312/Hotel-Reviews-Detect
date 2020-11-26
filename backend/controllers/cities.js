@@ -6,7 +6,7 @@ exports.getAllcities = async (req,res,next) => {
         const cities = await City.find({});
         if(cities.length === 0) return res.status(404).json({message:'cant find cities'});
 
-        setCache(req.params.allcities,36000,JSON.stringify(cities));
+        setCache(req.originalUrl,36000,JSON.stringify(cities));
 
         res.status(200).json(cities);
     } catch (error) {

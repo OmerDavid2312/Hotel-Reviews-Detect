@@ -1,4 +1,4 @@
-interface location{
+interface Location{
     city:String,
     country:String
 }

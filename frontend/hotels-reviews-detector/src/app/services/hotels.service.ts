@@ -15,7 +15,10 @@ export class HotelsService {
     return this.http.get(`${this.baseURL}/hotels/${cityName}`);
   }
 
-  public getHotelDetails(cityName:String , hotelId:String):Observable<any>{
-    return this.http.get(`${this.baseURL}/hotels/${cityName}/${hotelId}`);
+  public getHotelDetails(hotelId:String):Observable<any>{
+    return this.http.get(`${this.baseURL}/hotels/${hotelId}`);
+  }
+  public getSortedHotelsByField(cityName:String,field:String,sortType:String):Observable<any>{
+    return this.http.get(`${this.baseURL}/hotels/${cityName}/${field}/${sortType}`);
   }
 }

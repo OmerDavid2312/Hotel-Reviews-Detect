@@ -6,6 +6,7 @@ const isAuth = require('../middlewares/is-auth');
 const hotelController = require('../controllers/hotel');
 
 router.get('/:cityname',isAuth,cache,hotelController.getHotelsCity);
-router.get('/:cityname/:hotelid',isAuth,cache,hotelController.getHotelDetail);
+router.get('/:cityname/:field/:type',isAuth,cache,hotelController.sortHotelsByField)
+router.get('/:hotelid',isAuth,cache,hotelController.getHotelDetail);
 
 module.exports = router;

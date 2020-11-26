@@ -21,7 +21,7 @@ exports.getWeather = async (req,res,next)=>{
         };
 
         if(results){
-            setCache(long,36000,JSON.stringify(results))
+            setCache(req.originalUrl,36000,JSON.stringify(results))
             res.json(200).json(results)
         } else{
             res.json(404).json({message:'Cant find weather information'});
