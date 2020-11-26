@@ -1,9 +1,9 @@
 interface Location{
-    city:String,
-    country:String
+    city:string,
+    country:string
 }
 export interface Weather{
-    temp:Number,
+    temp:number,
     location:Location,
-    desc:String
+    desc:string
 }

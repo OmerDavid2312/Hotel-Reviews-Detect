@@ -3,8 +3,8 @@ interface Geo{
     long:Number
 }
 export interface City{
-    name:String,
-    country:String,
+    name:string,
+    country:string,
     geo:Geo,
-    image:String
+    image:string
 }
