@@ -4,7 +4,6 @@ const isAuth = require('../middlewares/is-auth');
 const cache = require('../middlewares/cache');
 
 const citiesController = require('../controllers/cities');
-//@param = allcities
-router.get('/:allcities',isAuth,cache,citiesController.getAllcities);
+router.get('',isAuth,cache,citiesController.getAllcities);
 
 module.exports = router;

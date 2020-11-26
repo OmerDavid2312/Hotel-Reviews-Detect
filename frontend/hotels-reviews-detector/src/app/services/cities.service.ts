@@ -11,6 +11,6 @@ export class CitiesService {
   constructor(private http:HttpClient) { }
 
   public getCities():Observable<any>{
-    return this.http.get(`${this.baseURL}/cities/allcities`);
+    return this.http.get(`${this.baseURL}/cities`);
   }
 }
