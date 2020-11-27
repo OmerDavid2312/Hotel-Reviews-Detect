@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 //components
 import { AppComponent } from './app.component';
@@ -45,6 +47,7 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
     FlashMessagesModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       progressBar:true,
       timeOut:5000,
