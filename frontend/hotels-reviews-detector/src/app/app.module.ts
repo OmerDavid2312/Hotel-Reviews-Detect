@@ -29,21 +29,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
 
-//angular material
-import {
-  MatCardModule,
-  MatInputModule,
-  MatButtonModule,
-  MatGridListModule,
-  MatDividerModule,
-  MatBadgeModule,
-  MatFormFieldModule,
-  MatSlideToggleModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatStepperModule,
-  MatListModule
-} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -66,20 +52,7 @@ import {
       progressBar:true,
       timeOut:5000,
       closeButton:true
-    }),
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatListModule,
-    MatIconModule,
-    MatStepperModule,
-    MatGridListModule,
-    MatDividerModule,
-    MatBadgeModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatToolbarModule
-
+    })
   ],
   providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
