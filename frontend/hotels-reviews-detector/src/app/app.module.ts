@@ -2,7 +2,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -30,6 +29,21 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
 
+//angular material
+import {
+  MatCardModule,
+  MatInputModule,
+  MatButtonModule,
+  MatGridListModule,
+  MatDividerModule,
+  MatBadgeModule,
+  MatFormFieldModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatStepperModule,
+  MatListModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -45,7 +59,6 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FlashMessagesModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -53,7 +66,19 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
       progressBar:true,
       timeOut:5000,
       closeButton:true
-    })
+    }),
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatIconModule,
+    MatStepperModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatToolbarModule
 
   ],
   providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,
