@@ -51,7 +51,9 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
     ToastrModule.forRoot({
       progressBar:true,
       timeOut:5000,
-      closeButton:true
+      closeButton:true,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
     })
   ],
   providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,

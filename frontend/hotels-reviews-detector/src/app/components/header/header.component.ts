@@ -8,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   private isLoggedIn:boolean = false
+  name:string;
   constructor(private authSrv:AuthService) { }
 
   ngOnInit() {
     this.isLoggedIn = this.authSrv.isLoggedIn(); // change..
+    this.authSrv.getUserDetails().subscribe(res=>{
+      this.name = res.name;      
+    })
   }
 
 }

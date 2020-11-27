@@ -5,15 +5,20 @@
       <div class="card border-main primary mb-3 fade-in" style="width: 100%;">
         <img src="{{hotel.image}}" class="card-img-top" style="height: 200px !important;" alt="{{hotel.name}}">
           <div class="card-body">
-              <div class="card-title font">{{hotel.name}}</div>
+              <div class="card-title font text">{{hotel.name}}</div>
+              <span>{{hotel.rating}}</span>
           </div>
           <div class="card-footer text-muted">
             <div class="row">
-              <div class="col" style="padding-top: 5.5px;">
+              <!-- <div class="col" style="padding-top: 5.5px;">
+              </div> -->
+              <div class="col text-white">
+                {{hotel.reviewCount}}
               </div>
               <div class="col" >
                 <button routerLink="{{hotel._id}}" class="btn btn-block secondry text-white" ><i class="fas fa-info-circle mr-2"></i>Details</button>
               </div>
+
    
             </div>       
             </div>

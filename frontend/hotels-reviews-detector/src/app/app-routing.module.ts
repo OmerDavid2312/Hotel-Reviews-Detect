@@ -15,7 +15,7 @@ const routes: Routes = [
   //auth
   { path: 'login', component: LoginComponent  }, 
   { path: 'register', component: RegisterComponent  }, 
-  { path: ':cityName', component: HotelsComponent, canActivate:[AuthGuard]}, 
+  { path: 'hotels/:cityName', component: HotelsComponent, canActivate:[AuthGuard]}, 
   // 404 not found
   { path: '**', component: NotFoundComponent }
 
