@@ -1,5 +1,5 @@
 import { Hotel } from './../../../models/Hotel';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotelsService } from 'src/app/services/hotels.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './hotels.component.html',
   styleUrls: ['./hotels.component.css']
 })
-export class HotelsComponent implements OnInit {
+export class HotelsComponent implements OnInit,OnDestroy{
 
   hotels:Hotel[];
   cityName:string;
@@ -25,10 +25,8 @@ export class HotelsComponent implements OnInit {
 
     this.subscription$ =this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
       this.hotels = hotels;
-    },err=>{
-      if(err.status === 404){
-        this.router.navigateByUrl('/');
-      }
+      console.log(this.hotels);
+      
     })
 
   }

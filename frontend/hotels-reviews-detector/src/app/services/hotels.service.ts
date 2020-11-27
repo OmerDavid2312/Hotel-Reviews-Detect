@@ -11,14 +11,14 @@ export class HotelsService {
 
   constructor(private http:HttpClient) { }
 
-  public getCityHotels(cityName:String):Observable<any>{
+  public getCityHotels(cityName:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/${cityName}`);
   }
 
-  public getHotelDetails(hotelId:String):Observable<any>{
+  public getHotelDetails(hotelId:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/${hotelId}`);
   }
-  public getSortedHotelsByField(cityName:String,field:String,sortType:String):Observable<any>{
+  public getSortedHotelsByField(cityName:string,field:string,sortType:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/${cityName}/${field}/${sortType}`);
   }
 }

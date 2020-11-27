@@ -26,6 +26,9 @@ export class ErrorInterceptor implements HttpInterceptor {
             this.authSrv.logout();
             this.router.navigateByUrl('/login');
         }
+        if(err.status === 404){
+            this.router.navigateByUrl('/');
+        }
 
         if(Number(err.status.toString()[0]) === 5 ){ //server error
             this.toastSrv.error(error);

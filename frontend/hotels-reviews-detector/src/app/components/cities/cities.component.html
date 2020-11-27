@@ -1,1 +1,26 @@
-<p>cities works!</p>
+<div class="container">
+    <h3 class="mt-5 font-weight-bold text-main" *ngIf="isFetched" >Our Cities</h3>
+    <div class="row mt-2" *ngIf="isFetched">
+      <div *ngFor="let city of cities" class="col-xl-4 col-lg-6 col-md-6 mt-4">
+      <div class="card border-main primary mb-3 fade-in" style="width: 100%;">
+        <img src="{{city.image}}" class="card-img-top" style="height: 200px !important;" alt="{{city.name}}">
+          <div class="card-body">
+              <div class="card-title font">{{city.name + ', '  + city.country}}</div>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="row">
+              <div class="col" style="padding-top: 5.5px;">
+              </div>
+              <div class="col" >
+                <button routerLink="{{city.name}}" class="btn btn-block secondry text-white" ><i class="fas fa-info-circle mr-2"></i>Go</button>
+              </div>
+   
+            </div>       
+            </div>
+        </div>
+  
+    </div>
+    
+  
+  
+  </div>

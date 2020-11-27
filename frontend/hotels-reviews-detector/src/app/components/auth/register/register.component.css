@@ -2,3 +2,11 @@
     text-align: center;
 }
 
+.card{
+    margin : auto;
+    margin-top: 9rem;
+}
+.border-main{
+    box-shadow: 3px 3px   #1DA0F2;
+ 
+}

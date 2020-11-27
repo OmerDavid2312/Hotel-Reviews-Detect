@@ -10,7 +10,7 @@ export class WeatherService {
 
   constructor(private http:HttpClient) { }
 
-  public getWeather(lat:Number,long:Number):Observable<any>{
-    return this.http.get(`${this.baseURL}/weather/${lat}/${long}`);
+  public async getWeather(lat:number,long:number):Promise<any>{
+    return this.http.get(`${this.baseURL}/weather/${lat}/${long}`).toPromise();
   }
 }

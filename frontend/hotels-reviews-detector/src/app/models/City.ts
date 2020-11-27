@@ -1,6 +1,6 @@
 interface Geo{
-    lat:Number,
-    long:Number
+    lat:number,
+    long:number
 }
 export interface City{
     name:string,

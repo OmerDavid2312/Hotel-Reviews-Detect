@@ -1,4 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body{margin: 0;background-color: #181818; font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif; color: white;}
+.primary{background-color: #303030 !important;}
+.secondry{background-color: #f74d41f8 !important;}
+h2{
+    font-weight: bold;
+    color: #f74d41f8;
+    font-size: 1.4rem;
+}
+
+.text-main{
+    color: #f74d41f8;
+
+}
+.border-main{
+    box-shadow: 0px 2px 0px  #f74d41f8;
+ 
+}
+
+
+.form-control{
+    background-color: #303030 !important;
+    color: white !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #3b3b3b;
+}
+.form-control:active{
+    background-color: #303030 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #3b3b3b; 
+}
+.form-control:focus{
+    background-color: #303030 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #f74d41f8; 
+    box-shadow: 0 2px 2px -2px #f74d41f8;
+   
+}
+.alert {
+    padding: .10rem 1.25rem !important;
+}
