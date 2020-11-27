@@ -5,6 +5,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 //components
 import { AppComponent } from './app.component';
@@ -18,10 +19,24 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 
+//components
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CitiesComponent } from './components/cities/cities.component';
+import { HotelsComponent } from './components/hotels/hotels/hotels.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+    NotFoundComponent,
+    CitiesComponent,
+    HotelsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +44,12 @@ import { ErrorInterceptor } from './interceptors/error-interceptor';
     FormsModule,
     FlashMessagesModule.forRoot(),
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      progressBar:true,
+      timeOut:5000,
+      closeButton:true
+    })
 
   ],
   providers: [,CitiesService,AuthService,WeatherService,HotelsService,
