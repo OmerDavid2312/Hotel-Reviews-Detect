@@ -2,6 +2,7 @@ import { Hotel } from './../../../models/Hotel';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotelsService } from 'src/app/services/hotels.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-hotels',
@@ -12,6 +13,8 @@ export class HotelsComponent implements OnInit {
 
   hotels:Hotel[];
   cityName:string;
+  private subscription$: Subscription;
+
   constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router) { }
 
   ngOnInit() {
@@ -20,13 +23,18 @@ export class HotelsComponent implements OnInit {
     }
     this.cityName = this.route.snapshot.paramMap.get('cityName');
 
-    this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
+    this.subscription$ =this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
       this.hotels = hotels;
     },err=>{
       if(err.status === 404){
         this.router.navigateByUrl('/');
       }
     })
+
+  }
+
+  ngOnDestroy(){
+    this.subscription$.unsubscribe();
   }
 
 }
