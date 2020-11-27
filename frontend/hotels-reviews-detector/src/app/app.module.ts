@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -55,7 +56,7 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
     })
 
   ],
-  providers: [,CitiesService,AuthService,WeatherService,HotelsService,
+  providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]

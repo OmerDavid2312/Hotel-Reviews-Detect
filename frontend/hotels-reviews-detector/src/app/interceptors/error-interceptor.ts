@@ -13,14 +13,26 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-            if (err.status === 401) {
-                // auto logout if 401 response returned from api
-                this.authSrv.logout();
-                this.router.navigateByUrl('/login');
-            }
-            const error = err.error.message ||  err.error.errors[0]['msg'] || err.statusText; 
-            this.toastSrv.error(error);
+
+            const error = err.error.message ||  err.error.errors[0]['msg'] || err.statusText;
+            this.handleErrStatus(err,error);
             return throwError(error);
         }))
+    }
+
+    protected handleErrStatus(err,error){
+        if (err.status === 401) {
+            // auto logout if 401 response returned from api
+            this.authSrv.logout();
+            this.router.navigateByUrl('/login');
+        }
+
+        if(Number(err.status.toString()[0]) === 5 ){ //server error
+            this.toastSrv.error(error);
+        }else if(err.status === 401){ //unauthorize
+            this.toastSrv.error(error);
+        }else if (Number(err.status.toString()[0]) === 4 ){ //client error (not found, etc ..)
+            this.toastSrv.warning(error);
+        }
     }
 }
