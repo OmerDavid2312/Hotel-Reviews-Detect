@@ -13,6 +13,7 @@ const startScrape = async () => {
                 await Mongo.connectDB();
                 const urls = await Scrape.getUrlsToScrape(Config.urlsSelector);
                 for await (const url of urls) {
+                    console.log(url);
                         await Scrape.gotoUrl(url)
                         const htmlBody = await Utils.getHTML(url);
                         const scrape = new Scrape(htmlBody);
