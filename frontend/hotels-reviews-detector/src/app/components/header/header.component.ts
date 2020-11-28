@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { WeatherService } from './../../services/weather.service';
 import { GeoService } from './../../services/geo.service';
 import { AuthService } from './../../services/auth.service';
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   name:string;
   geo
   weather;
-  constructor(private authSrv:AuthService,private geoSrv:GeoService,private weatherSrv:WeatherService) { }
+  constructor(private authSrv:AuthService,private geoSrv:GeoService,private weatherSrv:WeatherService,private router:Router) { }
 
   ngOnInit() {
     this.isLoggedIn = this.authSrv.isLoggedIn(); // change..
@@ -25,6 +26,10 @@ export class HeaderComponent implements OnInit {
     this.weather = await this.weatherSrv.getWeather(this.geo.lat,this.geo.lon);
     console.log(this.geo,this.weather);
     
+  }
+  logout(){
+    this.authSrv.logout();
+    this.router.navigateByUrl('/login');
   }
 
 }

@@ -26,18 +26,15 @@ export class ErrorInterceptor implements HttpInterceptor {
             this.authSrv.logout();
             this.router.navigateByUrl('/login');
         }
-        if(err.status === 404 || err.status === 500){
-            this.router.navigateByUrl('/');
-            console.log(this.router);
-            
-        }
 
         if(Number(err.status.toString()[0]) === 5 ){ //server error
             this.toastSrv.error(error);
+            this.router.navigateByUrl('/');
         }else if(err.status === 401){ //unauthorize
             this.toastSrv.error(error);
         }else if (Number(err.status.toString()[0]) === 4 ){ //client error (not found, etc ..)
             this.toastSrv.warning(error);
+            this.router.navigateByUrl('/');
         }
     }
 }
