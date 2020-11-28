@@ -17,6 +17,9 @@ h2{
     box-shadow: 0px 2px 0px  #f74d41f8;
  
 }
+.badge{
+    font-size: 0.8rem !important;
+}
 
 
 .form-control{
