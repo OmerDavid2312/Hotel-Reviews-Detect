@@ -1,3 +1,5 @@
+import { WeatherService } from './../../services/weather.service';
+import { GeoService } from './../../services/geo.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,13 +11,20 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   private isLoggedIn:boolean = false
   name:string;
-  constructor(private authSrv:AuthService) { }
+  geo
+  weather;
+  constructor(private authSrv:AuthService,private geoSrv:GeoService,private weatherSrv:WeatherService) { }
 
   ngOnInit() {
     this.isLoggedIn = this.authSrv.isLoggedIn(); // change..
-    this.authSrv.getUserDetails().subscribe(res=>{
-      this.name = res.name;      
-    })
+    this.name = localStorage.getItem('user');
+    this.getGeoAndWeatherOfUser();
+  }
+  async getGeoAndWeatherOfUser(){
+    this.geo = await this.geoSrv.getGeoLocation();
+    this.weather = await this.weatherSrv.getWeather(this.geo.lat,this.geo.lon);
+    console.log(this.geo,this.weather);
+    
   }
 
 }

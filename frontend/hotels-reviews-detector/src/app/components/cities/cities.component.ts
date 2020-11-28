@@ -26,10 +26,12 @@ export class CitiesComponent implements OnInit,OnDestroy {
     },err=>{
       this.spinner.hide();
     })
+
   }
   
   ngOnDestroy(){
     this.subscription$.unsubscribe();
   }
+
 
 }

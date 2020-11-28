@@ -16,6 +16,7 @@ import { WeatherService } from './services/weather.service';
 import { HotelsService } from './services/hotels.service';
 import { CitiesService } from './services/cities.service';
 import { AuthService } from './services/auth.service';
+import { GeoService } from './services/geo.service';
 
 //interceptor
 import { AuthInterceptor } from './interceptors/auth-interceptor';
@@ -28,6 +29,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
+import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-details.component';
 
 
 
@@ -39,7 +41,8 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
     HeaderComponent,
     NotFoundComponent,
     CitiesComponent,
-    HotelsComponent
+    HotelsComponent,
+    HotelDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { HotelsComponent } from './components/hotels/hotels/hotels.component';
       preventDuplicates: true,
     })
   ],
-  providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,
+  providers: [,CitiesService,AuthService,WeatherService,HotelsService,AuthGuard,GeoService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
