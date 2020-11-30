@@ -21,4 +21,7 @@ export class HotelsService {
   public getSortedHotelsByField(cityName:string,field:string,sortType:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/${cityName}?field=${field}&sort=${sortType}`);
   }
+  public getHotelsNearBy(country:string):Observable<any>{
+    return this.http.get(`${this.baseURL}/hotels/hotelsnearby/${country}`);
+  }
 }

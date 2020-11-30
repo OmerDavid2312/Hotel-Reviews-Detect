@@ -5,6 +5,7 @@ const isAuth = require('../middlewares/is-auth');
 
 const hotelController = require('../controllers/hotel');
 
+router.get('/hotelsnearby/:country',isAuth,cache,hotelController.getHotelsNearBy);
 router.get('/:cityname',isAuth,cache,hotelController.getHotelsCity);
 router.get('/:cityname/:hotelid',isAuth,cache,hotelController.getHotelDetail);
 
