@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-
+const {sendEmail} = require('../utils/email');
 const User = require('../models/User');
 
 exports.getUserDetails = async (req,res,next)=>{
@@ -69,6 +69,7 @@ exports.register = async (req,res,next)=>{
             name:name
         });
         const savedUser = await user.save();
+        await sendEmail({to:email,subject:'Welcome to Hotel Reviews Detector!',text:`Hi ${name}, We are glad you registered our App!`})
         res.status(201).json({_id:savedUser._id});
     } catch (error) {
         res.status(401).json({message:'Register Faild'});
