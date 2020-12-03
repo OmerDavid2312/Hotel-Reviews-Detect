@@ -69,7 +69,7 @@ exports.register = async (req,res,next)=>{
             name:name
         });
         const savedUser = await user.save();
-        await sendEmail({to:email,subject:'Welcome to Hotel Reviews Detector!',text:`Hi ${name}, We are glad you registered our App!`})
+        await sendEmail({to:email,subject:'Welcome to Hotel Reviews Detector!',text:`Hi ${name}, We are glad you registered to our App!`})
         res.status(201).json({_id:savedUser._id});
     } catch (error) {
         res.status(401).json({message:'Register Faild'});
