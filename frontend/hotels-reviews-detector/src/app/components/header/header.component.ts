@@ -19,14 +19,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn = this.authSrv.isLoggedIn(); // change..
     this.name = localStorage.getItem('user');
-    this.getGeoAndWeatherOfUser();
+    // this.getGeoAndWeatherOfUser();
   }
-  async getGeoAndWeatherOfUser(){
-    this.geo = await this.geoSrv.getGeoLocation();
-    this.weather = await this.weatherSrv.getWeather(this.geo.lat,this.geo.lon);
-    console.log(this.geo,this.weather);
+  // async getGeoAndWeatherOfUser(){
+  //   this.geo = await this.geoSrv.getGeoLocation();
+  //   this.weather = await this.weatherSrv.getWeather(this.geo.lat,this.geo.lon);
+  //   console.log(this.geo,this.weather);
     
-  }
+  // }
   logout(){
     this.authSrv.logout();
     this.router.navigateByUrl('/login');
