@@ -8,7 +8,9 @@ h2{
     color: #f74d41f8;
     font-size: 1.4rem;
 }
-
+.container{
+    max-width:1300px !important;
+}
 .text-main{
     color: #f74d41f8;
 

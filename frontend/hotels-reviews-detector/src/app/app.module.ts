@@ -9,8 +9,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-//components
-import { AppComponent } from './app.component';
 //services
 import { WeatherService } from './services/weather.service';
 import { HotelsService } from './services/hotels.service';
@@ -23,6 +21,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 
 //components
+import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,6 +29,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
 import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-details.component';
+import { MapComponent } from './components/map/map.component';
 
 
 
@@ -42,7 +42,8 @@ import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-d
     NotFoundComponent,
     CitiesComponent,
     HotelsComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +54,9 @@ import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-d
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       progressBar:true,
-      timeOut:5000,
+      timeOut:6000,
       closeButton:true,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-center',
       preventDuplicates: true,
     })
   ],
