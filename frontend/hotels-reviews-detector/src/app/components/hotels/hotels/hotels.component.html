@@ -2,7 +2,7 @@
 
     <h3 class="mt-5 font-weight-bold text-main" *ngIf="isFetched" >{{cityName}}</h3>
 
-    <div *ngIf='isFetched'>
+    <div *ngIf='isFetched'  style="margin-bottom: 300px !important; margin-top: 20px !important; ">
       <map-component [center]='{lat:cityDetails.geo.lat,long:cityDetails.geo.long}' [landmarks]='hotels' ></map-component>
     </div>
 

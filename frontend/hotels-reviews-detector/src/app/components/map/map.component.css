@@ -5,8 +5,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin:30px;
-    margin-top: 150px !important;
+    max-width: 1260px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 160px !important;
 }
 .map-frame{
     height: 60%;
