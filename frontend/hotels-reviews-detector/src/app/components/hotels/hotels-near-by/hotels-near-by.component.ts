@@ -1,32 +1,37 @@
 import { Hotel } from './../../../models/Hotel';
 import { HotelsService } from './../../../services/hotels.service';
 import { GeoService } from './../../../services/geo.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-hotels-near-by',
   templateUrl: './hotels-near-by.component.html',
   styleUrls: ['./hotels-near-by.component.css']
 })
-export class HotelsNearByComponent implements OnInit {
+export class HotelsNearByComponent implements OnInit,OnDestroy {
 
-  center;
+
   hotels:Hotel[];
-  isFetched:boolean = false;
+  hotelsCount:number;
+
+  private userGeoLocationSubscription$: Subscription;
+  private hotelsNearBySubscription$: Subscription;
 
   constructor(private geoSrv:GeoService,private hotelSrv:HotelsService) { }
 
   ngOnInit(): void {
-    this.geoSrv.getGeoLocation().subscribe(geo=>{
-      this.center = {lat:geo.lat,long:geo.lon};
-      this.hotelSrv.getHotelsNearBy(geo.country).subscribe(hotels=>{
+    this.userGeoLocationSubscription$ = this.geoSrv.getUserGeoLocation().subscribe(geo=>{
+      this.hotelsNearBySubscription$ = this.hotelSrv.getHotelsNearBy(geo.country).subscribe(hotels=>{
         this.hotels = hotels;
-        this.isFetched = true;  
+        this.hotelsCount = hotels.length;
       })
-      
    })
+  }
 
-  
+  ngOnDestroy(){
+    this.userGeoLocationSubscription$.unsubscribe();
+    this.hotelsNearBySubscription$.unsubscribe();
   }
 
 }

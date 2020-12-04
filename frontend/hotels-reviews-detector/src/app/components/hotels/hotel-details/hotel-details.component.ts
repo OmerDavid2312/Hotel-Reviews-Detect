@@ -15,7 +15,9 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
   hotel:Hotel;
   hotelId:string;
   cityName:string;
+
   isFetched:boolean = false;
+  
   private subscription$: Subscription;
 
   constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService) { }
@@ -26,13 +28,12 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
     }
     this.hotelId = this.route.snapshot.paramMap.get('hotelId');
     this.cityName = this.route.snapshot.paramMap.get('cityName');
+    
     this.spinner.show();
     this.subscription$ =this.hotelsSrv.getHotelDetails(this.hotelId, this.cityName).subscribe(hotel=>{
       this.spinner.hide();
       this.isFetched = true;
-      this.hotel = hotel;
-      console.log(this.hotel);
-      
+      this.hotel = hotel;      
     },err=>{
       this.spinner.hide();
     })

@@ -1,3 +1,5 @@
+import { City } from './../../../models/City';
+import { CitiesService } from './../../../services/cities.service';
 import { Hotel } from './../../../models/Hotel';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,10 +16,13 @@ export class HotelsComponent implements OnInit,OnDestroy{
 
   hotels:Hotel[];
   cityName:string;
+  cityDetails:City;
   isFetched:boolean = false;
-  private subscription$: Subscription;
 
-  constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService) { }
+  private cityHotelSubscription$: Subscription;
+  private cityDetailsSubscription$: Subscription;
+
+  constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router, private citiesSrv:CitiesService, private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
     if(!this.route.snapshot.paramMap.get('cityName')){
@@ -25,12 +30,19 @@ export class HotelsComponent implements OnInit,OnDestroy{
     }
     this.cityName = this.route.snapshot.paramMap.get('cityName');
     this.spinner.show();
-    this.subscription$ =this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
-      this.spinner.hide();
-      this.isFetched = true;
+    
+    this.cityHotelSubscription$ =this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
       this.hotels = hotels;
-      console.log(this.hotels);
       
+      this.cityDetailsSubscription$ = this.citiesSrv.getCityDetails(this.cityName).subscribe(cityDetails=>{
+        this.cityDetails = cityDetails;
+
+        this.spinner.hide();
+        this.isFetched = true;
+
+      },err=>{
+      this.spinner.hide();
+     })      
     },err=>{
       this.spinner.hide();
     })
@@ -38,7 +50,8 @@ export class HotelsComponent implements OnInit,OnDestroy{
   }
 
   ngOnDestroy(){
-    this.subscription$.unsubscribe();
+    this.cityHotelSubscription$.unsubscribe();
+    this.cityDetailsSubscription$.unsubscribe();    
   }
 
 }

@@ -9,7 +9,7 @@ export class GeoService {
 
   constructor(private http:HttpClient) { }
 
-  public getGeoLocation():Observable<any>{
+  public getUserGeoLocation():Observable<any>{
     return this.http.get('http://ip-api.com/json');
   }
 }

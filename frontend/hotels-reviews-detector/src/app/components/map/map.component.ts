@@ -7,9 +7,10 @@ import * as L from 'leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  constructor(){}
   @Input() center;
   @Input() landmarks:[] = [];
+  constructor(){}
+
   icon = {
     icon: L.icon({
       iconSize: [ 25, 41 ],
@@ -21,8 +22,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
      const map = L.map('map').setView(new L.LatLng(this.center.lat,this.center.long), 13);
-    console.log(this.landmarks);
-    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);

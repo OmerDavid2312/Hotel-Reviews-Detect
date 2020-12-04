@@ -11,6 +11,12 @@ h2{
 .container{
     max-width:1300px !important;
 }
+.btn-main{
+    background-color: #f74d41f8;
+}
+.btn-main:hover{
+    background-color: #cf3227f8;
+}
 .text-main{
     color: #f74d41f8;
 

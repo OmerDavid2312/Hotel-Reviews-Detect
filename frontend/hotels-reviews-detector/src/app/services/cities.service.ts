@@ -13,4 +13,8 @@ export class CitiesService {
   public getCities():Observable<any>{
     return this.http.get(`${this.baseURL}/cities`);
   }
+
+  public getCityDetails(cityName:string):Observable<any>{
+    return this.http.get(`${this.baseURL}/cities/${cityName}`);
+  }
 }
