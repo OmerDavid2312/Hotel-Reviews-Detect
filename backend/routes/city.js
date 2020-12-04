@@ -5,5 +5,7 @@ const cache = require('../middlewares/cache');
 
 const citiesController = require('../controllers/cities');
 router.get('',isAuth,cache,citiesController.getAllcities);
+router.get('/:cityName',isAuth,cache,citiesController.getCityDetails);
+
 
 module.exports = router;

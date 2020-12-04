@@ -10,7 +10,7 @@ exports.getHotelsCity = async (req,res,next) => {
         if(req.query.field && req.query.sort){
             let sortNum = req.query.sort === 'desc' ? -1 : 1;
             const sortedHotels = await Hotel.find({city:cityname}).select('name image rating class reviewCount city country').sort({[req.query.field]:sortNum});
-            if(sortedHotels.length === 0) return res.status(404).json({message:'cant find hotels and'});
+            if(sortedHotels.length === 0) return res.status(404).json({message:'cant find hotels'});
             if(sortedHotels){
                 setCache(req.originalUrl,36000,JSON.stringify(sortedHotels));
                 return res.status(200).json(sortedHotels);
