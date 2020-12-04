@@ -7,6 +7,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 //services
@@ -30,6 +31,7 @@ import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
 import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-details.component';
 import { MapComponent } from './components/map/map.component';
+import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 
 
 
@@ -43,13 +45,15 @@ import { MapComponent } from './components/map/map.component';
     CitiesComponent,
     HotelsComponent,
     HotelDetailsComponent,
-    MapComponent
+    MapComponent,
+    HotelsNearByComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxSpinnerModule,
+    LeafletModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({

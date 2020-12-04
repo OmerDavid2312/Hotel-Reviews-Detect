@@ -1,23 +1,34 @@
-// import * as L from 'leaflet';
-import { Component, OnInit } from '@angular/core';
-
+import { GeoService } from './../../services/geo.service';
+import { Component, Input, OnInit } from '@angular/core';
+import * as L from 'leaflet';
 @Component({
-  selector: 'app-map',
+  selector: 'map-component',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  // map
-  constructor() { }
- 
-  ngOnInit() {
-  }
+  constructor(){}
+  @Input() center;
+  @Input() landmarks:[] = [];
+  icon = {
+    icon: L.icon({
+      iconSize: [ 25, 41 ],
+      iconAnchor: [ 13, 0 ],
+      iconUrl: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-shadow.png'
+    })
+  };
 
-  // initMap(){
-  //   // this.map = L.map('map').setView([32.339444,-6.38033],15)
-  //   // console.log(this.map);
-  //   // const tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 })
-  //   // tiles.addTo(this.map);
-  // }
+  ngOnInit() {
+     const map = L.map('map').setView(new L.LatLng(this.center.lat,this.center.long), 13);
+    console.log(this.landmarks);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const marker = L.marker([this.center.lat, this.center.long], this.icon).addTo(map);
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+  }
 
 }

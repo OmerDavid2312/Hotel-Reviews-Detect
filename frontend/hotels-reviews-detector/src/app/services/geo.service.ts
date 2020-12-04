@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,7 +9,7 @@ export class GeoService {
 
   constructor(private http:HttpClient) { }
 
-  public async getGeoLocation():Promise<any>{
-    return this.http.get('http://ip-api.com/json').toPromise();
+  public getGeoLocation():Observable<any>{
+    return this.http.get('http://ip-api.com/json');
   }
 }
