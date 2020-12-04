@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private isLoggedIn:boolean = false
+  isLoggedIn:boolean = false
   name:string;
   geo
   weather;
