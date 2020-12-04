@@ -20,6 +20,8 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
   
   private subscription$: Subscription;
 
+  
+
   constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
@@ -34,7 +36,6 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
       this.spinner.hide();
       this.isFetched = true;
       this.hotel = hotel;  
-      console.log(hotel);
           
     },err=>{
       this.spinner.hide();

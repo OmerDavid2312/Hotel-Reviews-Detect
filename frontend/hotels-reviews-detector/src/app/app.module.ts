@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 //services
@@ -55,6 +56,7 @@ import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels
     NgxSpinnerModule,
     LeafletModule,
     HttpClientModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       progressBar:true,

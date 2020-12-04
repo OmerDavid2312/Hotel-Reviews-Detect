@@ -62,3 +62,15 @@ hr{
 .alert {
     padding: .10rem 1.25rem !important;
 }
+
+.my-pagination::ng-deep .ngx-pagination a {
+    color: gray !important;
+   
+ }
+ .my-pagination::ng-deep .ngx-pagination .current {
+    background-color: orange !important;
+   
+ }
+.my-pagination::ng-deep .ngx-pagination a:hover {
+        background-color: #1e2833;
+  }    

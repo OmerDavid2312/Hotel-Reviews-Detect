@@ -3,12 +3,22 @@ const { setCache } = require('../configs/redis');
 
 exports.getAllcities = async (req,res,next) => {
     try {
-        const cities = await City.find({});
+        const page = req.query.page || 1; 
+        const citiesPerPage = 8;
+        
+        const cities = await City.find({}).skip(citiesPerPage*(page-1)).limit(citiesPerPage);
         if(cities.length === 0) return res.status(404).json({message:'cant find cities'});
+        const count = await City.find({}).countDocuments();
 
-        setCache(req.originalUrl,36000,JSON.stringify(cities));
+        setCache(req.originalUrl,36000,JSON.stringify({
+            data:cities,
+            count:count
+        }));
 
-        res.status(200).json(cities);
+        res.status(200).json({
+            data:cities,
+            count:count
+        });
     } catch (error) {
         res.status(500).json({message:'faild get cities'});
     }

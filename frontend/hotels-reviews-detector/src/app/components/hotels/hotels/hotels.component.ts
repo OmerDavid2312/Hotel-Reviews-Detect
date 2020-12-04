@@ -22,17 +22,26 @@ export class HotelsComponent implements OnInit,OnDestroy{
   private cityHotelSubscription$: Subscription;
   private cityDetailsSubscription$: Subscription;
 
+  //paging
+   page:number = 1;
+   totalItem:number;
+
   constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router, private citiesSrv:CitiesService, private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
+    this.getHotelsCity();
+
+  }
+  getHotelsCity(){
     if(!this.route.snapshot.paramMap.get('cityName')){
       this.router.navigateByUrl('/'); //back to cities page
     }
     this.cityName = this.route.snapshot.paramMap.get('cityName');
     this.spinner.show();
     
-    this.cityHotelSubscription$ =this.hotelsSrv.getCityHotels(this.cityName).subscribe(hotels=>{
-      this.hotels = hotels;
+    this.cityHotelSubscription$ =this.hotelsSrv.getCityHotels(this.cityName,this.page).subscribe(hotels=>{
+      this.hotels = hotels.data;
+      this.totalItem = hotels.count;
       
       this.cityDetailsSubscription$ = this.citiesSrv.getCityDetails(this.cityName).subscribe(cityDetails=>{
         this.cityDetails = cityDetails;
@@ -46,7 +55,14 @@ export class HotelsComponent implements OnInit,OnDestroy{
     },err=>{
       this.spinner.hide();
     })
+  }
 
+  pageChanged(e){
+    this.page = e; 
+    //unsubscribe for ReSubscribe again in the func
+    this.cityHotelSubscription$.unsubscribe();
+    this.cityDetailsSubscription$.unsubscribe();
+    this.getHotelsCity();    
   }
 
   ngOnDestroy(){

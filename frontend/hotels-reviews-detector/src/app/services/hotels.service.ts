@@ -11,15 +11,15 @@ export class HotelsService {
 
   constructor(private http:HttpClient) { }
 
-  public getCityHotels(cityName:string):Observable<any>{
-    return this.http.get(`${this.baseURL}/hotels/${cityName}`);
+  public getCityHotels(cityName:string,currentPage:number):Observable<any>{
+    return this.http.get(`${this.baseURL}/hotels/${cityName}?page=${currentPage}`);
   }
 
   public getHotelDetails(hotelId:string,cityName:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/${cityName}/${hotelId}`);
   }
-  public getSortedHotelsByField(cityName:string,field:string,sortType:string):Observable<any>{
-    return this.http.get(`${this.baseURL}/hotels/${cityName}?field=${field}&sort=${sortType}`);
+  public getSortedHotelsByField(cityName:string,field:string,sortType:string,currentPage:number):Observable<any>{
+    return this.http.get(`${this.baseURL}/hotels/${cityName}?page=${currentPage}&field=${field}&sort=${sortType}`);
   }
   public getHotelsNearBy(country:string):Observable<any>{
     return this.http.get(`${this.baseURL}/hotels/hotelsnearby/${country}`);

@@ -10,8 +10,8 @@ export class CitiesService {
 
   constructor(private http:HttpClient) { }
 
-  public getCities():Observable<any>{
-    return this.http.get(`${this.baseURL}/cities`);
+  public getCities(currentPage:number):Observable<any>{
+    return this.http.get(`${this.baseURL}/cities?page=${currentPage}`);
   }
 
   public getCityDetails(cityName:string):Observable<any>{
