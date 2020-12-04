@@ -8,7 +8,7 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
   @Input() center;
-  @Input() landmarks:[] = [];
+  @Input() landmarks = [];
   constructor(){}
 
   icon = {
@@ -25,9 +25,8 @@ export class MapComponent implements OnInit {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
     const marker = L.marker([this.center.lat, this.center.long], this.icon).addTo(map);
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    marker.bindPopup(`<b>${this.landmarks[0].city}</b><br>`).openPopup();
   }
 
 }

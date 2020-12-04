@@ -29,7 +29,12 @@ h2{
     font-size: 0.8rem !important;
 }
 
-
+hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 3 ;
+    border-top: 1px solid #f74d41f8;
+}
 .form-control{
     background-color: #303030 !important;
     color: white !important;

@@ -1,5 +1,11 @@
+<div class="jumbotron jumbotron-fluid bg-dark"  *ngIf="isFetched">
+  <div class="container">
+    <h1 class="display-4"><span class="text-main font-weight bold">Less</span> Fake<span class="text-main font-weight bold"> More</span>True.</h1>
+    <p class="lead">We help you detect the best hotels around <span class="text-main font-weight-bold" style="font-size: 1.3rem !important;">{{cities.length + ' cities.'}}</span></p>
+    <p class="lead text-main"><i class="fas fa-hotel mr-2"></i><i class="fas fa-plus mr-2"></i><i class="fas fa-comment-alt mr-2"></i><i class="fas fa-equals mr-2"></i><i class="fas fa-grin-hearts mr-2"></i></p>
+  </div>
+</div>
 <div class="container">
-    <h3 class="mt-5 font-weight-bold text-main" *ngIf="isFetched" >Our Cities</h3>
     <div class="row mt-2" *ngIf="isFetched">
       <div *ngFor="let city of cities" class="col-xl-3 col-lg-6 col-md-6 mt-4">
       <div class="card border-main primary mb-3 fade-in" style="width: 100%;">

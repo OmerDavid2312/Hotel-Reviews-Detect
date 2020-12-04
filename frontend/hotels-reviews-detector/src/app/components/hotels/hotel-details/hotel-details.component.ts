@@ -33,13 +33,14 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
     this.subscription$ =this.hotelsSrv.getHotelDetails(this.hotelId, this.cityName).subscribe(hotel=>{
       this.spinner.hide();
       this.isFetched = true;
-      this.hotel = hotel;      
+      this.hotel = hotel;  
+      console.log(hotel);
+          
     },err=>{
       this.spinner.hide();
     })
 
   }
-
   ngOnDestroy(){
     this.subscription$.unsubscribe();
   }
