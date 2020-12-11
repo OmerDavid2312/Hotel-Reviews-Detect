@@ -65,6 +65,10 @@ hr{
 .my-pagination /deep/ .ngx-pagination .current {
     background:#f74d41f8!important;
   }
-  .my-pagination /deep/ .ngx-pagination li  {
+.my-pagination /deep/ .ngx-pagination li  {
     color:white!important;
+  }
+#toast-container div{
+      width: 350px !important;
+      text-align: center !important;
   }
