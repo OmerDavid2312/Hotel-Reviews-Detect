@@ -60,14 +60,22 @@ export class HotelsComponent implements OnInit,OnDestroy{
   pageChanged(e){
     this.page = e; 
     //unsubscribe for ReSubscribe again in the func
-    this.cityHotelSubscription$.unsubscribe();
-    this.cityDetailsSubscription$.unsubscribe();
+    if(this.cityHotelSubscription$){
+      this.cityHotelSubscription$.unsubscribe();
+    }
+    if(this.cityDetailsSubscription$){
+      this.cityDetailsSubscription$.unsubscribe();
+    }
     this.getHotelsCity();    
   }
 
   ngOnDestroy(){
-    this.cityHotelSubscription$.unsubscribe();
-    this.cityDetailsSubscription$.unsubscribe();    
+    if(this.cityHotelSubscription$){
+      this.cityHotelSubscription$.unsubscribe();
+    }
+    if(this.cityDetailsSubscription$){
+      this.cityDetailsSubscription$.unsubscribe();
+    }    
   }
 
 }
