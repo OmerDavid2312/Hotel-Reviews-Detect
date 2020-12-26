@@ -1,8 +1,15 @@
 <div class="jumbotron jumbotron-fluid bg-dark"  *ngIf="isFetched">
   <div class="container">
-    <h1 class="display-4"><span class="text-main font-weight bold">Less</span> Fake<span class="text-main font-weight bold"> More</span>True.</h1>
-    <p class="lead">We help you detect the best hotels around <span class="text-main font-weight-bold" style="font-size: 1.3rem !important;">{{totalItem + ' cities.'}}</span></p>
-    <p class="lead text-main"><i class="fas fa-hotel mr-2"></i><i class="fas fa-plus mr-2"></i><i class="fas fa-comment-alt mr-2"></i><i class="fas fa-equals mr-2"></i><i class="fas fa-grin-hearts mr-2"></i></p>
+    <div class="row">
+      <div class="col-lg-4">
+        <h1 class="display-4 pt-5"><span class="text-main font-weight bold">Less</span> Fake<span class="text-main font-weight bold"> More</span>True.</h1>
+      <p class="lead">We help you detect the best hotels around <span class="text-main font-weight-bold" style="font-size: 1.3rem !important;">{{totalItem + ' cities.'}}</span></p>
+    </div>
+      <div class="col-lg-8">    
+        <img src="../../../assets/booking.svg" alt="" style="width: inherit !important;" >
+      </div>
+    </div>
+
   </div>
 </div>
 <div class="container">
