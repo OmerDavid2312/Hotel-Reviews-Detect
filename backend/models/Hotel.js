@@ -4,6 +4,7 @@ const reviewsSchema = mongoose.Schema({
     rating: {type: Number,enum:[1,2,3,4,5]},
     desc: { type: String, required:true },
     user: { type: String, required:true },
+    reliability:{type:String,enum:["truth","deceptive"]}
 });
 const hotelSchema = mongoose.Schema({
     name: { type: String, required: true, unique: true },

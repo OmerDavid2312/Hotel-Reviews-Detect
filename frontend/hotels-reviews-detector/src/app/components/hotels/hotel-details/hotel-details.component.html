@@ -27,23 +27,29 @@
         <div class="reviews mt-4 container">
             <div *ngFor='let review of hotel.reviews' class="bla">
                 <div class="card primary mb-4">
-                    <div class="card-header">
-        
-                      <span class="mr-3 "><i class="fas fa-user mr-1"></i> {{review.user}}</span>
-                      <span class="mb-2 mr-3 text-success font-weight-bold" *ngIf='review.rating>3'>
-                        <i class="far fa-smile-beam mr-1 text-success" *ngIf='review.rating>3'></i>                    
-                        {{review.rating}}
-                      </span>
+                    <div class="card-header" [class.fake]="review.reliability === 'deceptive'">
+                      <div class="row">
+                        <div class="col">{{review.reliability}}</div>
+                        <div class="col">                     
+                          
+                          <span class="mr-3 float-right "><i class="fas fa-user mr-1"></i> {{review.user}}</span>
+                          <span class="mb-2 float-right mr-3 text-success font-weight-bold" *ngIf='review.rating>3'>
+                            <i class="far fa-smile-beam mr-1 text-success" *ngIf='review.rating>3'></i>                    
+                            {{review.rating}}
+                          </span>
+    
+                          <span class="mb-2 mr-3 float-right text-info font-weight-bold" *ngIf='review.rating==3'>
+                            <i class="far fa-smile-beam mr-1 text-info" *ngIf='review.rating==3'></i>                    
+                            {{review.rating}}
+                          </span>
+    
+                          <span class="mb-2 mr-3 float-right text-danger font-weight-bold" *ngIf='review.rating<3'>
+                            <i class="far fa-smile-beam mr-1 text-danger" ></i>                    
+                            {{review.rating}}
+                          </span> 
+                        </div>
+                      </div>
 
-                      <span class="mb-2 mr-3 text-info font-weight-bold" *ngIf='review.rating==3'>
-                        <i class="far fa-smile-beam mr-1 text-info" *ngIf='review.rating==3'></i>                    
-                        {{review.rating}}
-                      </span>
-
-                      <span class="mb-2 mr-3 text-danger font-weight-bold" *ngIf='review.rating<3'>
-                        <i class="far fa-smile-beam mr-1 text-danger" ></i>                    
-                        {{review.rating}}
-                      </span> 
 
                     </div>
                     <div class="card-body">

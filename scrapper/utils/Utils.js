@@ -63,6 +63,24 @@ class Utils{
     }
 
 }
+
+// const updateReviewsPrediction =  async ()=>{
+//     let index = 0;
+//     try {
+//         const json = require('./i12or-bqhs6.json');
+//          await Mongo.connectDB();
+//          json.forEach(async record=>{
+//          await Model.findOneAndUpdate({name:record.name,"reviews.user":record.user},
+//         {$set: {"reviews.$.reliability": record.reliability}});
+//     })        
+//     } catch (error) {
+//         console.log(error);
+//     }finally{
+//         console.log('done!!');
+//     }
+
+// }
+// updateReviewsPrediction()
 // const saveReviewsExcel = async ()=>{
 //     try {
 //         let json = []
@@ -81,5 +99,5 @@ class Utils{
 //         Logger.log('done')
 //     }
 // }
-// b()
+// saveReviewsExcel()
 module.exports =  Utils
