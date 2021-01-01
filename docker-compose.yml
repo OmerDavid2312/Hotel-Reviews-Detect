@@ -1,0 +1,16 @@
+version: '3.0' 
+ 
+services:
+ angular: # name of the first service
+  build:
+    context: ./frontend
+    dockerfile: dockerfile
+  ports:
+  - "4200:4200" # specify port mapping
+ 
+ express: # name of the second service
+  build: 
+    context: ./backend
+    dockerfile: dockerfile
+  ports:
+  - "3000:3000" #specify ports mapping
