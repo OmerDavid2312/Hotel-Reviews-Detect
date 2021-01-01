@@ -1,8 +1,9 @@
 const assert = require('assert');
 const {expect} = require('chai');
 const TestUtils = require('./core/TestUtils');
+describe('auth',()=>{
 
-describe('login', function() {
+  describe('login', () => {
 
     it('should login', async ()=> {
       const response = await TestUtils.login({
@@ -46,15 +47,16 @@ describe('login', function() {
       expect(status).to.be.equal(401);
     });
 
-});
-
-describe('auth faild', () => {
-
-  it('should auth faild due to no login', async ()=> {
-    const response = await TestUtils.fetchRequest('/api/cities','GET',null,null);
-    const status = await response.status;
-    expect(status).to.be.equal(401);
   });
-  
 
-});
+  describe('auth faild', () => {
+
+    it('should auth faild due to no login', async ()=> {
+      const response = await TestUtils.fetchRequest('/api/cities','GET',null,null);
+      const status = await response.status;
+      expect(status).to.be.equal(401);
+    });
+    
+
+  });
+})
