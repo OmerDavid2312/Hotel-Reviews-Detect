@@ -13,14 +13,24 @@ before( async () => {
 
 describe('cities', function() {
 
-    it('should get all cities', async ()=> {
-        const response = await TestUtils.fetchRequest('/api/cities','GET',null,TOKEN);
+    it('should get first 8 cities (page=1)', async ()=> {
+        const response = await TestUtils.fetchRequest('/api/cities?page=1','GET',null,TOKEN);
         const status = await response.status;
         const json = await response.json();
         expect(status).to.be.equal(200);
         expect(json).include.keys('data');
         expect(json).include.keys('count');
     });
+
+    it('should get next 8 cities (page=2)', async ()=> {
+      const response = await TestUtils.fetchRequest('/api/cities?page=2','GET',null,TOKEN);
+      const status = await response.status;
+      const json = await response.json();
+      expect(status).to.be.equal(200);
+      expect(json).include.keys('data');
+      expect(json).include.keys('count');
+   });
+
 
     it('should get one city details', async ()=> {
         const response = await TestUtils.fetchRequest('/api/cities/Barcelona','GET',null,TOKEN);
@@ -32,5 +42,13 @@ describe('cities', function() {
         expect(json).include.keys('country');
         expect(json).include.keys('image');
     });
+
+    it('should faild to get not found city', async ()=> {
+      const response = await TestUtils.fetchRequest('/api/cities/BarcelonaDASSD','GET',null,TOKEN);
+      const status = await response.status;
+      const json = await response.json();
+      expect(status).to.be.equal(404);
+      expect(json.message).to.be.equal('cant find city details')
+   });
 
 });

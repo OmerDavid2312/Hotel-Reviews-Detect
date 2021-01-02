@@ -26,6 +26,18 @@ describe('auth',()=>{
       expect(status).to.be.equal(401);
     });
 
+    it('should faild to login due to invalid email', async ()=> {
+      const response = await TestUtils.login({
+        email:"test@a.g",
+        password:"test1234"
+    });
+      const status = await response.status;
+      const json = await response.json();
+      expect(json.errors[0].msg).to.be.equal('Invalid value');
+      expect(json.errors[0].location).to.be.equal('body');
+      expect(status).to.be.equal(422);
+    });
+
     it('should check password must contains at least 5 chars', async ()=> {
       const response = await TestUtils.login({
         email:"test@gmail.com",
