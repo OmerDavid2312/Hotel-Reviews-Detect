@@ -1,6 +1,7 @@
 const assert = require('assert');
 const {expect} = require('chai');
 const TestUtils = require('./core/TestUtils');
+const User = require('../models/User')
 describe('auth',()=>{
 
   describe('login', () => {
@@ -59,4 +60,5 @@ describe('auth',()=>{
     
 
   });
+
 })

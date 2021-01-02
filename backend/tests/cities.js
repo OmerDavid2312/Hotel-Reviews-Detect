@@ -2,11 +2,11 @@ const assert = require('assert');
 const {expect} = require('chai');
 const TestUtils = require('./core/TestUtils');
 let TOKEN;
-beforeEach( async () => {
+before( async () => {
   const response = await TestUtils.login({
     email:"test@gmail.com",
     password:"Test1234"
-})
+  })
   const json = await response.json()
   TOKEN = json.token;
 });
