@@ -18,21 +18,12 @@
       itemsPerPage: 8,
       currentPage: page,
       totalItems: totalItem }" class="col-xl-3 col-lg-6 col-md-6 mt-4">
-      <div class="card border-main primary mb-3 fade-in" style="width: 100%;">
-        <img src="{{city.image}}" class="card-img-top" style="height: 200px !important;" alt="{{city.name}}">
-          <div class="card-body">
-              <div class="card-title font">{{city.name + ', '  + city.country}}</div>
+      <div class="card border-main primary mb-3 fade-in" style="width: 100%;" routerLink="hotels/{{city.name}}" style="cursor:  pointer !important;">
+        <img src="{{city.image}}" class="card-img" style="height: 200px !important; filter: brightness(80%);" alt="{{city.name}}">
+          <div class="card-img-overlay">
+              <div class="card-title" style="margin: 0 auto; text-align: center; margin-top: 70px !important;">{{city.name + ', '  + city.country}}</div>
           </div>
-          <div class="card-footer text-muted">
-            <div class="row">
-              <div class="col" style="padding-top: 5.5px;">
-              </div>
-              <div class="col" >
-                <button routerLink="hotels/{{city.name}}" class="btn btn-block secondry text-white" ><i class="fas fa-info-circle mr-2"></i>Go</button>
-              </div>
-   
-            </div>       
-            </div>
+
         </div>
   
     </div>

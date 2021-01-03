@@ -3,3 +3,6 @@
     font-family: 'Teko', sans-serif;
 
 }
+.card{
+    box-shadow: none !important;
+}
