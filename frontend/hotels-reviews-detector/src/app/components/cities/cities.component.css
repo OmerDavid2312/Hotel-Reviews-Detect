@@ -6,3 +6,16 @@
 .card{
     box-shadow: none !important;
 }
+
+.card:hover{
+    filter:brightness(75%) !important;
+    transition: all 0.1s ease;
+    opacity: 1;
+    transform: scale(1.01)  ;
+}
+
+.card{
+    opacity: 1; 
+    transform: scale(1.00);
+    transition: all 0.1s ;  
+}
