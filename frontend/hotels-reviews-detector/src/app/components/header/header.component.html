@@ -24,9 +24,6 @@
             <a (click)="logout()" style="cursor: pointer;" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt text-danger"></i> Log Out</a>
           </div>
         </div>
-
-        <a  *ngIf='!isLoggedIn' class="nav-link text-white" routerLink="/login">Login</a>
-        <a  *ngIf='!isLoggedIn' class="nav-link text-white" routerLink="/register">Register</a>
       </ul>
       
     </div>
