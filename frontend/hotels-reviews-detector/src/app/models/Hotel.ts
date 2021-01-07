@@ -1,8 +1,8 @@
-enum Reliability{
+export enum Reliability{
     TRUTH="truth",
     DECEPTIVE="deceptive"
 }
-interface Review{
+export interface Review{
     title:string,
     rating:number,
     desc:string,

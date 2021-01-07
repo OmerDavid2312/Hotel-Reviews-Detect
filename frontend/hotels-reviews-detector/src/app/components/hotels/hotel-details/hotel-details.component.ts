@@ -1,9 +1,11 @@
-import { Hotel } from './../../../models/Hotel';
+import { ReviewsService } from './../../../services/reviews.service';
+import { Hotel, Review, Reliability } from './../../../models/Hotel';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Subscription } from 'rxjs';
 import { HotelsService } from 'src/app/services/hotels.service';
+
 
 @Component({
   selector: 'app-hotel-details',
@@ -15,14 +17,15 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
   hotel:Hotel;
   hotelId:string;
   cityName:string;
-
   isFetched:boolean = false;
   
   private subscription$: Subscription;
 
-  
+  //paging
+  page:number = 1;
+  totalItem:number;
 
-  constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService) { }
+  constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService,private reviewSrv:ReviewsService) { }
 
   ngOnInit() {
     if(!this.route.snapshot.paramMap.get('cityName') && !this.route.snapshot.paramMap.get('hotelId')){
@@ -35,13 +38,21 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
     this.subscription$ =this.hotelsSrv.getHotelDetails(this.hotelId, this.cityName).subscribe(hotel=>{
       this.spinner.hide();
       this.isFetched = true;
-      this.hotel = hotel;  
-          
+      this.hotel = hotel;          
     },err=>{
       this.spinner.hide();
     })
 
   }
+
+  pageChanged(e){
+    this.page = e; 
+    if(this.subscription$){
+      this.subscription$.unsubscribe();
+    }
+      
+  }
+
   ngOnDestroy(){
     if(this.subscription$){
       this.subscription$.unsubscribe();
