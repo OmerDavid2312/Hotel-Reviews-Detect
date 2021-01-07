@@ -7,7 +7,7 @@
             <div class="mt-3">
                 <span class="badge badge-pill badge-info mr-3">{{hotel.address}}</span>
                 <span class="badge badge-pill badge-primary mr-3"> {{hotel.class}} <i class="fas fa-star"></i></span>
-                <span class="badge badge-pill badge-warning mr-3"> {{hotel.reviews.length}} Reviews <i class="fas fa-comment-alt mr-2"></i></span>
+                <span class="badge badge-pill badge-warning mr-3"> {{hotel.truthReviewsCount || hotel.reviews.length}} Reviews <i class="fas fa-comment-alt mr-2"></i></span>
         
             </div>
             

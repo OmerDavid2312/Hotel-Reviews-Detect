@@ -43,6 +43,16 @@ describe('hotels', () => {
         expect(json).include.keys('reviews');
     });
 
+    it('should get specifc hotel fake and truth reviews counts', async ()=> {
+        const response = await TestUtils.fetchRequest('/api/hotels/Barcelona/5fc23ac10fda4b139c1cece3','GET',null,TOKEN);
+        const status = await response.status;
+        const json = await response.json();
+        expect(status).to.be.equal(200);
+        expect(json).include.keys('fakeReviewsCount');
+        expect(json).include.keys('truthReviewsCount');
+
+    })
+
     it('should faild get not found hotel details', async ()=> {
         const response = await TestUtils.fetchRequest('/api/hotels/Barcelona/5fc23ac10fda4b139c1cece2','GET',null,TOKEN);
         const status = await response.status;

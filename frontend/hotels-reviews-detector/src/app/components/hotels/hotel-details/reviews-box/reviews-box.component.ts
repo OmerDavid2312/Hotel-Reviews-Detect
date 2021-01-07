@@ -8,19 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./reviews-box.component.css']
 })
 export class ReviewsBoxComponent implements OnInit {
+  
   @Input() reviews:Review[];
   @Input() truthReviewsCount:number;
   @Input() fakeReviewsCount:number;
   @Input() allReviewsCount:number;
   
-  allReviews:{avg:number,count:number}
-  fakeReviews:{avg:number,count:number}
-  truthReviews:{avg:number,count:number}
+  allReviewsInfo:{avg:number,count:number}
+  fakeReviewsInfo:{avg:number,count:number}
+  truthReviewsInfo:{avg:number,count:number}
 
   constructor(private reviewSrv:ReviewsService) { }
 
   ngOnInit(): void {
-    this.allReviews = {
+    this.allReviewsInfo = {
       avg: this.reviewSrv.getAVGreviews(this.reviews),
       count:this.allReviewsCount
     }
@@ -28,19 +29,22 @@ export class ReviewsBoxComponent implements OnInit {
     let truthReviews = this.reviewSrv.getReviewsOfType(this.reviews,Reliability.TRUTH);
     let fakeReviews =  this.reviewSrv.getReviewsOfType(this.reviews,Reliability.DECEPTIVE);
 
-    this.fakeReviews = {
+    this.fakeReviewsInfo = {
       avg: this.reviewSrv.getAVGreviews(fakeReviews),
       count:this.fakeReviewsCount
     }
 
-    this.truthReviews = {
+    this.truthReviewsInfo = {
       avg: this.reviewSrv.getAVGreviews(truthReviews),
       count:this.truthReviewsCount
     }
 
+    console.log('1 =>', this.reviewSrv.getCountOfRatings(truthReviews,1));
+    console.log('2 =>', this.reviewSrv.getCountOfRatings(truthReviews,2));
+    console.log('3 =>', this.reviewSrv.getCountOfRatings(truthReviews,3));
+    console.log('4 =>', this.reviewSrv.getCountOfRatings(truthReviews,4));
+    console.log('5 =>', this.reviewSrv.getCountOfRatings(truthReviews,5));
 
   }
-
-
 
 }
