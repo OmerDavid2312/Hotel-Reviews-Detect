@@ -9,6 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReviewsBoxComponent implements OnInit {
   @Input() reviews:Review[];
+  @Input() truthReviewsCount:number;
+  @Input() fakeReviewsCount:number;
+  @Input() allReviewsCount:number;
+  
   allReviews:{avg:number,count:number}
   fakeReviews:{avg:number,count:number}
   truthReviews:{avg:number,count:number}
@@ -18,7 +22,7 @@ export class ReviewsBoxComponent implements OnInit {
   ngOnInit(): void {
     this.allReviews = {
       avg: this.reviewSrv.getAVGreviews(this.reviews),
-      count:this.reviewSrv.getReviewsCount(this.reviews)
+      count:this.allReviewsCount
     }
 
     let truthReviews = this.reviewSrv.getReviewsOfType(this.reviews,Reliability.TRUTH);
@@ -26,12 +30,12 @@ export class ReviewsBoxComponent implements OnInit {
 
     this.fakeReviews = {
       avg: this.reviewSrv.getAVGreviews(fakeReviews),
-      count:this.reviewSrv.getReviewsCount(fakeReviews)
+      count:this.fakeReviewsCount
     }
 
     this.truthReviews = {
       avg: this.reviewSrv.getAVGreviews(truthReviews),
-      count:this.reviewSrv.getReviewsCount(truthReviews)
+      count:this.truthReviewsCount
     }
 
 

@@ -13,10 +13,6 @@ export class ReviewsService {
      return Number(ratings.toFixed(2));
    }
 
-   getReviewsCount(reviews){
-      return Number(reviews.length)
-   }
-
    getReviewsOfType(reviews,type:Reliability){
     if(type){
       return reviews.filter(review=> review.reliability === type);
