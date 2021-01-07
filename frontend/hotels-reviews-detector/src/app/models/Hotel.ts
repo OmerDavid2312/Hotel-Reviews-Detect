@@ -19,5 +19,7 @@ export interface Hotel{
     reviewCount:string,
     city:string,
     country:string,
-    reviews:Review[]
+    reviews:Review[],
+    fakeReviewsCount:number,
+    truthReviewsCount:number
 }
