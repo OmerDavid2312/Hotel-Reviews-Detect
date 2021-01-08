@@ -17,4 +17,12 @@ export class ReviewsBoxComponent implements OnInit {
 
   }
 
+  public generateStars(count: number): Array<number> {
+    let indexes = [];
+    for (let i = 0; i < count; i++) {
+      indexes.push(i);
+    }
+    return indexes;
+  }
+
 }

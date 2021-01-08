@@ -34,7 +34,6 @@ import { CitiesComponent } from './components/cities/cities.component';
 import { HotelsComponent } from './components/hotels/hotels/hotels.component';
 import { HotelDetailsComponent } from './components/hotels/hotel-details/hotel-details.component';
 import { MapComponent } from './components/map/map.component';
-import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 import { ReviewsComponent } from './components/hotels/hotel-details/reviews/reviews.component';
 import { ReviewsBoxComponent } from './components/hotels/hotel-details/reviews-box/reviews-box.component';
 
@@ -51,7 +50,6 @@ import { ReviewsBoxComponent } from './components/hotels/hotel-details/reviews-b
     HotelsComponent,
     HotelDetailsComponent,
     MapComponent,
-    HotelsNearByComponent,
     ReviewsComponent,
     ReviewsBoxComponent
   ],
