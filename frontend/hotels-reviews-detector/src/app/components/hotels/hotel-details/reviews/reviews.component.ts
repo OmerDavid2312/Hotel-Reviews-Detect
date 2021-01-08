@@ -13,7 +13,8 @@ export class ReviewsComponent implements OnInit {
   constructor(private reviewSrv:ReviewsService) { }
 
   ngOnInit(): void {
-    this.reviews = this.reviewSrv.getReviewsOfType(this.reviews,Reliability.TRUTH)
+    
+    this.reviews = this.reviewSrv.getReviewsOfType(this.reviews,Reliability.TRUTH);
     this.totalItem = this.reviews.length;
     
   }

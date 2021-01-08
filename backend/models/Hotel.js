@@ -16,9 +16,7 @@ const hotelSchema = mongoose.Schema({
     reviewCount: { type: String, required:true },
     city: { type: String, required:true },
     country: { type: String, required:true },
-    reviews: [reviewsSchema],
-    fakeReviewsCount: {type: Number},
-    truthReviewsCount: {type: Number}
+    reviews: [reviewsSchema]
 });
 
 module.exports = mongoose.model("hotel", hotelSchema);

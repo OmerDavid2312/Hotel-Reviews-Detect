@@ -2,6 +2,7 @@ export enum Reliability{
     TRUTH="truth",
     DECEPTIVE="deceptive"
 }
+
 export interface Review{
     title:string,
     rating:number,
@@ -9,6 +10,25 @@ export interface Review{
     user:string,
     reliability?:Reliability.TRUTH|Reliability.DECEPTIVE
 }
+
+export interface ReviewStats{
+    fake?:{
+        count:number,
+        avg:number,
+        ratingCount:Object
+    },
+    truth?:{
+        count:number,
+        avg:number,
+        ratingCount:Object
+    },
+    all?:{
+        count:number,
+        avg:number,
+        ratingCount:Object
+    }
+}
+
 export interface Hotel{
     name:string,
     address:String,
@@ -20,6 +40,5 @@ export interface Hotel{
     city:string,
     country:string,
     reviews:Review[],
-    fakeReviewsCount:number,
-    truthReviewsCount:number
+    reviewStats?:ReviewStats
 }

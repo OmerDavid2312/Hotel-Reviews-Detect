@@ -25,7 +25,11 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
   page:number = 1;
   totalItem:number;
 
-  constructor(private route:ActivatedRoute,private hotelsSrv:HotelsService,private router:Router,private spinner:NgxSpinnerService,private reviewSrv:ReviewsService) { }
+  constructor(private route:ActivatedRoute,
+              private hotelsSrv:HotelsService,
+              private router:Router,
+              private spinner:NgxSpinnerService,
+              private reviewSrv:ReviewsService) { }
 
   ngOnInit() {
     if(!this.route.snapshot.paramMap.get('cityName') && !this.route.snapshot.paramMap.get('hotelId')){
@@ -38,7 +42,9 @@ export class HotelDetailsComponent implements OnInit,OnDestroy {
     this.subscription$ =this.hotelsSrv.getHotelDetails(this.hotelId, this.cityName).subscribe(hotel=>{
       this.spinner.hide();
       this.isFetched = true;
-      this.hotel = hotel;          
+      this.hotel = hotel; 
+      this.hotel.reviewStats = this.reviewSrv.getReviewsStat(hotel.reviews);     
+        
     },err=>{
       this.spinner.hide();
     })

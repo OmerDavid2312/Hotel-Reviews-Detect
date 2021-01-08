@@ -6,8 +6,8 @@
             <h1 class="text-main">{{hotel.name}}</h1>
             <div class="mt-3">
                 <span class="badge badge-pill badge-info mr-3">{{hotel.address}}</span>
-                <span class="badge badge-pill badge-primary mr-3"> {{hotel.class}} <i class="fas fa-star"></i></span>
-                <span class="badge badge-pill badge-warning mr-3"> {{hotel.truthReviewsCount || hotel.reviews.length}} Reviews <i class="fas fa-comment-alt mr-2"></i></span>
+                <span class="badge badge-pill badge-primary mr-3"> {{hotel.class +' Class'}} <i class="fas fa-star"></i></span>
+                <span class="badge badge-pill badge-warning mr-3"> {{hotel.reviewStats.truth.count || hotel.reviews.length}} Reviews <i class="fas fa-comment-alt mr-2"></i></span>
         
             </div>
             
@@ -27,19 +27,16 @@
     <br>
 
 <div class="container">
-  <div class="progress" *ngIf="hotel.truthReviewsCount">
-    <div class="progress-bar bg-success" role="progressbar" [style.width]="hotel.truthReviewsCount/(hotel.truthReviewsCount+hotel.fakeReviewsCount)*100 + '%'"  aria-valuemin="0" aria-valuemax="100">{{hotel.truthReviewsCount  + ' Truth'}}</div>
-    <div class="progress-bar bg-danger" role="progressbar" [style.width]="hotel.fakeReviewsCount/(hotel.truthReviewsCount+hotel.fakeReviewsCount)*100 + '%'"  aria-valuemin="0" aria-valuemax="100">{{hotel.fakeReviewsCount  + ' Fakes'}}</div>
+  <div class="progress" *ngIf="hotel.reviewStats.truth.count">
+    <div class="progress-bar bg-success" role="progressbar" [style.width]="hotel.reviewStats.truth.count/(hotel.reviewStats.truth.count+hotel.reviewStats.fake.count)*100 + '%'"  aria-valuemin="0" aria-valuemax="100">{{hotel.reviewStats.truth.count  + ' Truth'}}</div>
+    <div class="progress-bar bg-danger" role="progressbar" [style.width]="hotel.reviewStats.fake.count/(hotel.reviewStats.truth.count+hotel.reviewStats.fake.count)*100 + '%'"  aria-valuemin="0" aria-valuemax="100">{{hotel.reviewStats.fake.count  + ' Fakes'}}</div>
   </div>
 </div>
 
 
     <div class="row">
       <div class="col-xl-2 col-lg-8  mt-4  pr-0 pl-0 ">
-        <app-reviews-box [reviews]="hotel.reviews"
-         [fakeReviewsCount]="hotel.fakeReviewsCount"
-         [truthReviewsCount]="hotel.truthReviewsCount"
-         [allReviewsCount]="hotel.reviews.length"
+        <app-reviews-box [reviewStats]="hotel.reviewStats"
          ></app-reviews-box>
       </div>
       <div class="col-xl-10 col-lg-4 pr-0 pl-0  mt-4">

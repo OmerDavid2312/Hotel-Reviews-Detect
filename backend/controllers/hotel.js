@@ -1,6 +1,6 @@
 const Hotel = require('../models/Hotel');
 const { setCache } = require('../configs/redis');
-const { getReviewsTypeCount} = require('../utils/utils');
+
 exports.getHotelsCity = async (req,res,next) => {
     try {
         const {cityname} = req.params;
@@ -55,9 +55,6 @@ exports.getHotelDetail = async (req,res,next) => {
 
         const hotelDetail = await Hotel.findOne({_id:hotelid});
         if(!hotelDetail) return res.status(404).json({message:'cant find hotel'});
-       
-        hotelDetail.fakeReviewsCount =  await getReviewsTypeCount(hotelDetail,'deceptive')
-        hotelDetail.truthReviewsCount =  await getReviewsTypeCount(hotelDetail,'truth')
         
         setCache(req.originalUrl,36000,JSON.stringify(hotelDetail));
         res.status(200).json(hotelDetail);
