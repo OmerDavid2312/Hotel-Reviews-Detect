@@ -1,21 +1,31 @@
 <div class="card primary mt-4 container">
+    <div class="card-header">
+        <h1>ratings</h1>
+    </div>
+    <div class="card-body">
+        <h2>{{'new rating:' + reviewStats.truth.avg}}</h2>
+        <h2>{{'old rating:' + reviewStats.all.avg}}</h2>
+    
+        <h2>{{'new count :' + reviewStats.truth.count}}</h2>
+        <h2>{{'- detected fake count:' + reviewStats.fake.count}}</h2>
+        <h2>{{'old count:' + reviewStats.all.count}}</h2>
+    </div>
 
-    <h2>{{'new rating:' + reviewStats.truth.avg}}</h2>
-    <h2>{{'old rating:' + reviewStats.all.avg}}</h2>
-
-    <h2>{{'new count :' + reviewStats.truth.count}}</h2>
-    <h2>{{'- detected fake count:' + reviewStats.fake.count}}</h2>
-    <h2>{{'old count:' + reviewStats.all.count}}</h2>
 </div>
 
 <div class="card primary mt-4 container">
-    <h1>ratings</h1>
-    <h2 *ngIf="reviewStats.truth.ratingCount['1']">{{'1:' + reviewStats.truth.ratingCount['1']}}</h2>
-    <h2 *ngIf="reviewStats.truth.ratingCount['2']">{{'2:' + reviewStats.truth.ratingCount['2']}}</h2>
-    <h2 *ngIf="reviewStats.truth.ratingCount['3']">{{'3:' + reviewStats.truth.ratingCount['3']}}</h2>
-    <h2 *ngIf="reviewStats.truth.ratingCount['4']">{{'4:' + reviewStats.truth.ratingCount['4']}}</h2>
+    <div class="card-header">
+        <h1>ratings</h1>
+    </div>
+    <div class="card-body">
+        <h2 *ngIf="reviewStats.truth.ratingCount['1']">{{'1:' + reviewStats.truth.ratingCount['1']}}</h2>
+        <h2 *ngIf="reviewStats.truth.ratingCount['2']">{{'2:' + reviewStats.truth.ratingCount['2']}}</h2>
+        <h2 *ngIf="reviewStats.truth.ratingCount['3']">{{'3:' + reviewStats.truth.ratingCount['3']}}</h2>
+        <h2 *ngIf="reviewStats.truth.ratingCount['4']">{{'4:' + reviewStats.truth.ratingCount['4']}}</h2>
 
-    <h2>{{'5:' + reviewStats.truth.ratingCount['5']}}</h2>
+        <h2>{{'5:' + reviewStats.truth.ratingCount['5']}}</h2>        
+    </div>
+
 
    
 </div>
