@@ -1,38 +1,59 @@
-    <div class="reviews mt-4 ">
-      <div *ngFor="let review of reviews | paginate: { id: 'hotel',
-      itemsPerPage: 8,
-      currentPage: page,
-      totalItems: totalItem }">
-          <div class="card primary mb-4">
-              <div class="card-header">
-                <div class="row">
-                  <div class="col">                     
-                    
-                    <span class="mr-3 float-left "><i class="fas fa-user mr-1"></i> {{review.user}}</span>
-                    <span class="mb-2 float-left mr-3 text-success font-weight-bold" *ngIf='review.rating>3'>
-                      <i class="far fa-smile-beam mr-1 text-success" *ngIf='review.rating>3'></i>                    
-                      {{review.rating}}
-                    </span>
+<div class="reviews mt-4">
+  <div
+    *ngFor="
+      let review of reviews
+        | paginate
+          : {
+              id: 'hotel',
+              itemsPerPage: 8,
+              currentPage: page,
+              totalItems: totalItem
+            }
+    "
+  >
+    <div class="card primary mb-4">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <span class="mr-3 float-left"
+              ><i class="fas fa-user mr-1"></i> {{ review.user }}</span
+            >
+            <span
+              class="mb-2 float-left mr-3 text-success font-weight-bold"
+              *ngIf="review.rating > 3"
+            >
+              <i
+                class="far fa-smile-beam mr-1 text-success"
+                *ngIf="review.rating > 3"
+              ></i>
+              {{ review.rating }}
+            </span>
 
-                    <span class="mb-2 mr-3 float-left text-info font-weight-bold" *ngIf='review.rating==3'>
-                      <i class="far fa-meh mr-1 text-info" *ngIf='review.rating==3'></i>                    
-                      {{review.rating}}
-                    </span>
+            <span
+              class="mb-2 mr-3 float-left text-info font-weight-bold"
+              *ngIf="review.rating == 3"
+            >
+              <i
+                class="far fa-meh mr-1 text-info"
+                *ngIf="review.rating == 3"
+              ></i>
+              {{ review.rating }}
+            </span>
 
-                    <span class="mb-2 mr-3 float-left text-danger font-weight-bold" *ngIf='review.rating<3'>
-                      <i class="far fa-frown mr-1 text-danger" ></i>                    
-                      {{review.rating}}
-                    </span> 
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{review.title}}</h5>
-                <p class="card-text">{{review.desc}}</p>
-              </div>
-            </div>
+            <span
+              class="mb-2 mr-3 float-left text-danger font-weight-bold"
+              *ngIf="review.rating < 3"
+            >
+              <i class="far fa-frown mr-1 text-danger"></i>
+              {{ review.rating }}
+            </span>
+          </div>
+        </div>
       </div>
-     
+      <div class="card-body">
+        <h5 class="card-title">{{ review.title }}</h5>
+        <p class="card-text">{{ review.desc }}</p>
+      </div>
+    </div>
   </div>
+</div>

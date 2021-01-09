@@ -1,21 +1,20 @@
-.jumbotron{
-    padding: 8rem 4rem !important;
-    font-family: 'Teko', sans-serif;
-
+.jumbotron {
+  padding: 8rem 4rem !important;
+  font-family: "Teko", sans-serif;
 }
-.card{
-    box-shadow: none !important;
-}
-
-.card:hover{
-    filter:brightness(75%) !important;
-    transition: all 0.1s ease;
-    opacity: 1;
-    transform: scale(1.01)  ;
+.card {
+  box-shadow: none !important;
 }
 
-.card{
-    opacity: 1; 
-    transform: scale(1.00);
-    transition: all 0.1s ;  
+.card:hover {
+  filter: brightness(75%) !important;
+  transition: all 0.1s ease;
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.card {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.1s;
 }

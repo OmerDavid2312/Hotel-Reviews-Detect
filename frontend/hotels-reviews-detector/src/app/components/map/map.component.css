@@ -1,19 +1,19 @@
-.map-container{
-    position: absolute;
-    display: block !important;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 1260px !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 160px !important;
+.map-container {
+  position: absolute;
+  display: block !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 1260px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 160px !important;
 }
-.map-frame{
-    height: 60%;
+.map-frame {
+  height: 60%;
 }
-#map{
-    height: 60%;
+#map {
+  height: 60%;
 }

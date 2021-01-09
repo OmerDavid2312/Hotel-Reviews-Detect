@@ -4,6 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
+    "prettier-ts":"npx prettier --write **/*.ts",
+    "prettier-html":"npx prettier --write **/*.html",
+    "prettier-css":"npx prettier --write **/*.css",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

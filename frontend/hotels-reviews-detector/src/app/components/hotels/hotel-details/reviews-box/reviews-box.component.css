@@ -1,13 +1,12 @@
-i{
-    color: var(--secondry);
-    
+i {
+  color: var(--secondry);
 }
-.rating-stars{
-    font-size: 1.2rem !important;
+.rating-stars {
+  font-size: 1.2rem !important;
 }
 
-.progress{
-    display: inline-flex;
-    width: 50%;
-    margin-left: 10px !important;
+.progress {
+  display: inline-flex;
+  width: 50%;
+  margin-left: 10px !important;
 }
