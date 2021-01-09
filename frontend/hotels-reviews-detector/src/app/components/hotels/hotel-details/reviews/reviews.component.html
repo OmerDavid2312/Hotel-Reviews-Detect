@@ -15,12 +15,12 @@
                     </span>
 
                     <span class="mb-2 mr-3 float-left text-info font-weight-bold" *ngIf='review.rating==3'>
-                      <i class="far fa-smile-beam mr-1 text-info" *ngIf='review.rating==3'></i>                    
+                      <i class="far fa-meh mr-1 text-info" *ngIf='review.rating==3'></i>                    
                       {{review.rating}}
                     </span>
 
                     <span class="mb-2 mr-3 float-left text-danger font-weight-bold" *ngIf='review.rating<3'>
-                      <i class="far fa-smile-beam mr-1 text-danger" ></i>                    
+                      <i class="far fa-frown mr-1 text-danger" ></i>                    
                       {{review.rating}}
                     </span> 
                   </div>
