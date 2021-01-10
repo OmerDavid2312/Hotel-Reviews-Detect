@@ -1,3 +1,4 @@
+import { Hotel } from './../models/Hotel';
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -11,13 +12,13 @@ export class HotelsService {
   constructor(private http: HttpClient) {}
 
   public getCityHotels(cityName: string, currentPage: number): Observable<any> {
-    return this.http.get(
+    return this.http.get<{count:number,data:Hotel[]}>(
       `${this.baseURL}/hotels/${cityName}?page=${currentPage}`
     );
   }
 
   public getHotelDetails(hotelId: string, cityName: string): Observable<any> {
-    return this.http.get(`${this.baseURL}/hotels/${cityName}/${hotelId}`);
+    return this.http.get<Hotel>(`${this.baseURL}/hotels/${cityName}/${hotelId}`);
   }
   public getSortedHotelsByField(
     cityName: string,

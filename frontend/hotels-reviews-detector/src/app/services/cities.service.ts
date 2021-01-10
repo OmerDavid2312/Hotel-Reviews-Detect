@@ -1,3 +1,4 @@
+import { City } from './../models/City';
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -11,10 +12,10 @@ export class CitiesService {
   constructor(private http: HttpClient) {}
 
   public getCities(currentPage: number): Observable<any> {
-    return this.http.get(`${this.baseURL}/cities?page=${currentPage}`);
+    return this.http.get<{count:number,data:City[]}>(`${this.baseURL}/cities?page=${currentPage}`);
   }
 
   public getCityDetails(cityName: string): Observable<any> {
-    return this.http.get(`${this.baseURL}/cities/${cityName}`);
+    return this.http.get<City>(`${this.baseURL}/cities/${cityName}`);
   }
 }
