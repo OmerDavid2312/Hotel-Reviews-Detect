@@ -1,3 +1,4 @@
+import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 import { AuthGuard } from "./guards/auth.guard";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: "hotels/:cityName/:hotelId",
     component: HotelDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "hotelsnearby",
+    component: HotelsNearByComponent,
     canActivate: [AuthGuard],
   },
 

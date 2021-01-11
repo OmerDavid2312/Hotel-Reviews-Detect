@@ -34,6 +34,7 @@ import { HotelDetailsComponent } from "./components/hotels/hotel-details/hotel-d
 import { MapComponent } from "./components/map/map.component";
 import { ReviewsComponent } from "./components/hotels/hotel-details/reviews/reviews.component";
 import { ReviewsBoxComponent } from "./components/hotels/hotel-details/reviews-box/reviews-box.component";
+import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ReviewsBoxComponent } from "./components/hotels/hotel-details/reviews-b
     MapComponent,
     ReviewsComponent,
     ReviewsBoxComponent,
+    HotelsNearByComponent
   ],
   imports: [
     BrowserModule,
