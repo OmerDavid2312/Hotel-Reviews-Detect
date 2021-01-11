@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { GeoService } from './../../../services/geo.service';
 import { HotelsService } from './../../../services/hotels.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,9 +13,10 @@ export class HotelsNearByComponent implements OnInit {
   hotels;
 
   isFetched:boolean=false;
-  constructor(private hotelSrv:HotelsService,private geoSrv:GeoService) { }
+  constructor(private hotelSrv:HotelsService,private geoSrv:GeoService,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.geoSrv.getUserGeoLocation().then(geo=>{
 
       this.geo = geo;
@@ -23,10 +25,12 @@ export class HotelsNearByComponent implements OnInit {
 
       this.hotels=hotels
       this.isFetched = true;
+      this.spinner.hide();
+
         
-      })
+      }).catch(()=>this.spinner.hide())
       
-    })
+    }).catch(()=>this.spinner.hide())
   }
 
 }
