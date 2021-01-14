@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsNearByComponent implements OnInit {
   geo;
-  hotels:Hotel;
+  hotels:Hotel[];
   count:number;
   isFetched:boolean=false;
 

@@ -8,3 +8,7 @@ nav {
   font-size: 1.4rem;
   margin-left: 10px;
 }
+
+.active-link{
+  border-bottom: 2px solid white ;
+}
