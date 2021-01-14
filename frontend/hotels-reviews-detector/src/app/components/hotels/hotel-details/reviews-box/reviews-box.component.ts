@@ -15,11 +15,4 @@ export class ReviewsBoxComponent implements OnInit {
     console.log(this.reviewStats);
   }
 
-  public generateStars(count: number): Array<number> {
-    let indexes = [];
-    for (let i = 0; i < count; i++) {
-      indexes.push(i);
-    }
-    return indexes;
-  }
 }

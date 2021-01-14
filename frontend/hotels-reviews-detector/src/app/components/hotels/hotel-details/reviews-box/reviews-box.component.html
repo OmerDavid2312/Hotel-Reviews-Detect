@@ -1,11 +1,41 @@
-<div class="card primary mt-4 container">
+<div class="card primary mt-4 container text-center" *ngIf="reviewStats.truth.avg">
   <div class="card-body">
-    <h2>{{ "new rating:" + reviewStats.truth.avg }}</h2>
-    <h2>{{ "old rating:" + reviewStats.all.avg }}</h2>
+    <div class="row pl-5">
+      <h2 style="font-size: 2.4rem !important;">{{reviewStats.truth.avg}}</h2>
+      <div class="ml-2">
+        <div *ngIf="reviewStats.truth.avg.toFixed(0) == '1'">
+          <i class="fas fa-star"></i> <i class="far fa-star"></i>
+          <i class="far fa-star"></i> <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div *ngIf="reviewStats.truth.avg.toFixed(0) == '2'">
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="far fa-star"></i> <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div *ngIf="reviewStats.truth.avg.toFixed(0) == '3'">
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i> <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div *ngIf="reviewStats.truth.avg.toFixed(0) == '4'">
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div *ngIf="reviewStats.truth.avg.toFixed(0) == '5'">
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
 
-    <h2>{{ "new count :" + reviewStats.truth.count }}</h2>
-    <h2>{{ "- detected fake count:" + reviewStats.fake.count }}</h2>
-    <h2>{{ "old count:" + reviewStats.all.count }}</h2>
+
+      
+    </div>
+    <!-- <div class="row pl-5">
+      <h2 style="font-size: 2.4rem !important;"> {{reviewStats.truth.count }}  </h2> <h5 class="text-danger"> - Removed {{reviewStats.fake.count}} fakes reviews</h5>
+    </div> -->
   </div>
 </div>
 

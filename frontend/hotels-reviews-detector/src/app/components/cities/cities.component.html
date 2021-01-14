@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="jumbotron jumbotron-fluid bg-dark" *ngIf="isFetched">
+<div class="jumbotron jumbotron-fluid bg-dark" *ngIf="isFetched" style="display: flex;">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -30,6 +30,21 @@
     </div>
   </div>
 </div>
+
+
+<div class="d-flex justify-content-center align-items-center container" *ngIf="isFetched">
+  <div class="text-center main" style="position: absolute; margin-top: -2px !important;">
+
+    <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+  
+  </div>
+</div>
+
+
+
 <div class="container">
   <div class="row mt-2" *ngIf="isFetched">
     <div
