@@ -1,3 +1,4 @@
+import { Hotel } from './../../../models/Hotel';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { GeoService } from './../../../services/geo.service';
 import { HotelsService } from './../../../services/hotels.service';
@@ -10,9 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsNearByComponent implements OnInit {
   geo;
-  hotels;
-
+  hotels:Hotel;
+  count:number;
   isFetched:boolean=false;
+
   constructor(private hotelSrv:HotelsService,private geoSrv:GeoService,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -22,8 +24,10 @@ export class HotelsNearByComponent implements OnInit {
       this.geo = geo;
 
       this.hotelSrv.getHotelsNearBy(geo.country).then(hotels=>{
-
-      this.hotels=hotels
+        
+      this.hotels=hotels.data;
+      
+      this.count = hotels.count;
       this.isFetched = true;
       this.spinner.hide();
 

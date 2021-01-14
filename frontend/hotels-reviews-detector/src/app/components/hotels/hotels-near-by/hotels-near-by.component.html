@@ -9,7 +9,7 @@
   <h1 class="text-main">{{geo.city}}<span class="text-white" style="font-size: 1.5rem !important;">,
       {{geo.country}}</span></h1>
   <div *ngIf="hotels.length > 1 ">
-    <h5 class="mt-3">found <span class="text-main" style="font-size: 1.3rem;">{{hotels.length}}</span>
+    <h5 class="mt-3">found <span class="text-main" style="font-size: 1.3rem;">{{count}}</span>
        hotels near your location, in <span class="text-main" style="font-size: 1.3rem;">{{hotels[0].city}}</span> </h5>
   </div>
   <div *ngIf="!hotels">

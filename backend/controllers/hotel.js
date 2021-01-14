@@ -61,6 +61,7 @@ exports.getHotelDetail = async (req, res, next) => {
       return res.status(404).json({ message: "cant find hotel" });
 
     setCache(req.originalUrl, 36000, JSON.stringify(hotelDetail));
+
     res.status(200).json(hotelDetail);
   } catch (error) {
     res.status(500).json({ message: "faild get hotel" });
@@ -76,12 +77,18 @@ exports.getHotelsNearBy = async (req, res, next) => {
     const hotelsNearBy = await Hotel.find({ country: country })
       .select("name image rating class reviewCount city country")
       .limit(4);
+
+    const count = await Hotel.find({ country: country }).countDocuments();
     if (hotelsNearBy.length === 0)
       return res.status(404).json({ message: "cant find hotels nearby" });
 
-    setCache(req.originalUrl, 36000, JSON.stringify(hotelsNearBy));
+    setCache(
+      req.originalUrl,
+      36000,
+      JSON.stringify({ data: hotelsNearBy, count: count })
+    );
 
-    res.status(200).json(hotelsNearBy);
+    res.status(200).json({ data: hotelsNearBy, count: count });
   } catch (error) {
     res.status(500).json({ message: "faild get hotel" });
   }
