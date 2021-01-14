@@ -19,7 +19,7 @@
 </div>
 
 
-<div class="container text-center " *ngIf="hotels">
+<div class="container  " *ngIf="hotels">
   <div class="row mt-2" *ngIf="isFetched">
     <div *ngFor="
         let hotel of hotels
@@ -53,8 +53,11 @@
       </div>
     </div>
   </div>
+  <div class="text-center">
 
-  <button *ngIf="hotels[0].city" class="btn btn-main mt-3 text-white mt-4 mb-4"
-    routerLink="{{'/hotels/' + hotels[0].city}}">More hotels in {{hotels[0].city}}</button>
+    <button *ngIf="hotels[0].city" class="btn btn-main mt-3 text-white mt-4 mb-4"
+    routerLink="{{'/hotels/' + hotels[0].city}}">More hotels in {{hotels[0].city}}</button>   
+  </div>
+ 
 
 </div>
