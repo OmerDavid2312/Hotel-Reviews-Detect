@@ -1,7 +1,13 @@
 <app-header></app-header>
 
+<div *ngIf="isFetched" style="margin-bottom: 2px !important; margin-top: 30px !important;">
+  <div class="">
+    <map-component [center]="{ lat: geo.lat, long:geo.lon }" [userLocationCity]="geo.city" [landmarks]="hotels">
+    </map-component>
+  </div>
+</div>
 
-<div class="container text-center mb-5" style="margin-top: 70px !important;" *ngIf="isFetched">
+<div class="container text-center mb-5" style="margin-top: 30px !important;" *ngIf="isFetched">
   <i class="fas fa-map-marker-alt text-main mb-3" style="font-size: 3.7rem !important;"></i>
   <h1 class="text-main">{{geo.city}}<span class="text-white" style="font-size: 1.5rem !important;">,
       {{geo.country}}</span></h1>
@@ -14,12 +20,7 @@
   </div>
 
 </div>
-<div *ngIf="isFetched" style="margin-bottom: 30px !important; margin-top: 40px !important;">
-  <div class="container">
-    <map-component [center]="{ lat: geo.lat, long:geo.lon }" [userLocationCity]="geo.city" [landmarks]="hotels">
-    </map-component>
-  </div>
-</div>
+
 
 <div class="container  " *ngIf="hotels">
   <div class="row mt-2" *ngIf="isFetched">
