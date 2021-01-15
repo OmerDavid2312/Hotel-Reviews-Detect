@@ -2,7 +2,7 @@
 
 <div *ngIf="isFetched" style="margin-bottom: 2px !important; margin-top: 30px !important;">
   <div class="">
-    <map-component [center]="{ lat: geo.lat, long:geo.lon }" [userLocationCity]="geo.city" [landmarks]="hotels">
+    <map-component [center]="{ lat: geo.lat, long:geo.lon }" [landMarkName]="geo.city" >
     </map-component>
   </div>
 </div>

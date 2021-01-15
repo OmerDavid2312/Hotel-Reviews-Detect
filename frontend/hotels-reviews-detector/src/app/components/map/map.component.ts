@@ -8,8 +8,8 @@ import * as L from "leaflet";
 })
 export class MapComponent implements OnInit {
   @Input() center;
-  @Input() landmarks = [];
-  @Input() userLocationCity:string
+  @Input() landMarkName:string;
+
   constructor() {}
 
   icon = {
@@ -31,14 +31,13 @@ export class MapComponent implements OnInit {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
+    
     const marker = L.marker(
       [this.center.lat, this.center.long],
       this.icon
     ).addTo(map);
-    if(this.userLocationCity){
-      marker.bindPopup(`<b>${this.userLocationCity}</b><br>`).openPopup();
-    }else{
-      marker.bindPopup(`<b>${this.landmarks[0].city}</b><br>`).openPopup();
-    }
+
+     marker.bindPopup(`<b>${this.landMarkName}</b><br>`).openPopup();
+    
   }
 }

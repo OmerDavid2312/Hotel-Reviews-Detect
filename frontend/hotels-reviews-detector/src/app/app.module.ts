@@ -33,7 +33,7 @@ import { HotelsComponent } from "./components/hotels/hotels/hotels.component";
 import { HotelDetailsComponent } from "./components/hotels/hotel-details/hotel-details.component";
 import { MapComponent } from "./components/map/map.component";
 import { ReviewsComponent } from "./components/hotels/hotel-details/reviews/reviews.component";
-import { ReviewsBoxComponent } from "./components/hotels/hotel-details/reviews-box/reviews-box.component";
+import { SideDetailsComponent } from "./components/hotels/hotel-details/side-details/side-details.component";
 import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 
 @NgModule({
@@ -48,7 +48,7 @@ import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels
     HotelDetailsComponent,
     MapComponent,
     ReviewsComponent,
-    ReviewsBoxComponent,
+    SideDetailsComponent,
     HotelsNearByComponent
   ],
   imports: [

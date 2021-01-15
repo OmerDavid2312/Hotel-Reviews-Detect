@@ -22,7 +22,6 @@ export class CitiesComponent implements OnInit, OnDestroy {
 
   constructor(
     private citiesSrv: CitiesService,
-    private weatherSrv: WeatherService,
     private spinner: NgxSpinnerService
   ) {}
 
