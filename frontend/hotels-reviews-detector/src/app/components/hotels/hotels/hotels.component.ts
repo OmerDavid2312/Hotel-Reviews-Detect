@@ -1,11 +1,30 @@
-import { City } from "./../../../models/City";
-import { CitiesService } from "./../../../services/cities.service";
-import { Hotel } from "./../../../models/Hotel";
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { HotelsService } from "src/app/services/hotels.service";
-import { Subscription } from "rxjs";
-import { NgxSpinnerService } from "ngx-spinner";
+import {
+  City
+} from "./../../../models/City";
+import {
+  CitiesService
+} from "./../../../services/cities.service";
+import {
+  Hotel
+} from "./../../../models/Hotel";
+import {
+  Component,
+  OnDestroy,
+  OnInit
+} from "@angular/core";
+import {
+  ActivatedRoute,
+  Router
+} from "@angular/router";
+import {
+  HotelsService
+} from "src/app/services/hotels.service";
+import {
+  Subscription
+} from "rxjs";
+import {
+  NgxSpinnerService
+} from "ngx-spinner";
 
 @Component({
   selector: "app-hotels",
@@ -25,6 +44,8 @@ export class HotelsComponent implements OnInit, OnDestroy {
   page: number = 1;
   totalItem: number;
 
+  activeSort: 'All' | 'Class' = 'All'
+
   constructor(
     private route: ActivatedRoute,
     private hotelsSrv: HotelsService,
@@ -35,6 +56,31 @@ export class HotelsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getHotelsCity();
+  }
+  sort(sortType: 'All' | 'Class') {
+    if (sortType === 'All') {
+      if (this.activeSort === 'Class') {
+        this.page = 1;
+      }
+      this.getHotelsCity();
+      this.activeSort = 'All';
+    }
+    if (sortType === 'Class') {
+      if (this.activeSort === 'All') {
+        this.page = 1;
+      }
+      this.spinner.show();
+      this.cityHotelSubscription$ = this.hotelsSrv.getSortedHotelsByField(this.route.snapshot.paramMap.get("cityName"), 'class', 'desc', this.page)
+        .subscribe(hotels => {
+          this.hotels = hotels.data;
+          this.totalItem = hotels.count;
+          this.activeSort = 'Class';
+          this.spinner.hide();
+        }, err => {
+          this.spinner.hide();
+        })
+    }
+
   }
   getHotelsCity() {
     if (!this.route.snapshot.paramMap.get("cityName")) {
@@ -72,14 +118,13 @@ export class HotelsComponent implements OnInit, OnDestroy {
 
   pageChanged(e) {
     this.page = e;
-    //unsubscribe for ReSubscribe again in the func
     if (this.cityHotelSubscription$) {
       this.cityHotelSubscription$.unsubscribe();
     }
     if (this.cityDetailsSubscription$) {
       this.cityDetailsSubscription$.unsubscribe();
     }
-    this.getHotelsCity();
+    this.sort(this.activeSort)
   }
 
   ngOnDestroy() {

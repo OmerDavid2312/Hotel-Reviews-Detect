@@ -31,6 +31,13 @@ h2 {
 .btn-main {
   background-color: var(--secondry);
 }
+.btn-main-outline{
+  border-color:var(--secondry);
+  color:  var(--secondry);
+}
+.btn-main-outline:hover{
+  background-color:var(--secondry);
+}
 .btn-main:hover {
   background-color: #cf3227f8;
 }

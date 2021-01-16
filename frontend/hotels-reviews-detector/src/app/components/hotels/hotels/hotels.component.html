@@ -3,27 +3,27 @@
 <div class="container">
   <h3 class="mt-5 font-weight-bold text-main" *ngIf="isFetched">
     {{ cityName
-    }}<span
-      class="text-white"
-      style="font-size: 1.3rem !important; font-weight: normal !important"
-    >
-      Hotels</span
-    >
+    }}<span class="text-white" style="font-size: 1.3rem !important; font-weight: normal !important">
+      Hotels</span>
   </h3>
 
-  <div
-    *ngIf="isFetched"
-    style="margin-bottom: 20px !important; margin-top: 20px !important"
-  >
-    <map-component
-      [center]="{ lat: cityDetails.geo.lat, long: cityDetails.geo.long }"
-      [landMarkName]="hotels[0].city"
-    ></map-component>
+  <div *ngIf="isFetched" style="margin-bottom: 20px !important; margin-top: 20px !important">
+    <map-component [center]="{ lat: cityDetails.geo.lat, long: cityDetails.geo.long }" [landMarkName]="hotels[0].city">
+    </map-component>
+  </div>
+
+  <div style="border-bottom: 1px solid gray;" class="pb-3 pt-3" *ngIf="isFetched">
+
+    <i class="fas fa-sort"></i> Sort
+    <button (click)="sort('All')" [class.btn-main]="activeSort === 'All'"
+      [class.btn-main-outline]="activeSort !== 'All'" class="ml-2 btn">All</button>
+
+    <button (click)="sort('Class')" [class.btn-main]="activeSort === 'Class'"
+      [class.btn-main-outline]="activeSort !== 'Class'" class="ml-2 btn btn-main-outline">Class</button>
   </div>
 
   <div class="row mt-2" *ngIf="isFetched">
-    <div
-      *ngFor="
+    <div *ngFor="
         let hotel of hotels
           | paginate
             : {
@@ -32,16 +32,9 @@
                 currentPage: page,
                 totalItems: totalItem
               }
-      "
-      class="col-xl-3 col-lg-6 col-md-6 mt-4"
-    >
+      " class="col-xl-3 col-lg-6 col-md-6 mt-4">
       <div class="card border-main primary mb-3 fade-in" style="width: 100%">
-        <img
-          src="{{ hotel.image }}"
-          class="card-img-top"
-          style="height: 200px !important"
-          alt="{{ hotel.name }}"
-        />
+        <img src="{{ hotel.image }}" class="card-img-top" style="height: 200px !important" alt="{{ hotel.name }}" />
         <div class="card-body">
           <div class="card-title font text">
             {{
@@ -57,13 +50,9 @@
         <div class="card-footer text-muted">
           <div class="row">
             <div class="col text-white">
-              {{ hotel.reviewCount }}
             </div>
             <div class="col">
-              <button
-                routerLink="{{ hotel._id }}"
-                class="btn btn-block secondry text-white"
-              >
+              <button routerLink="{{ hotel._id }}" class="btn btn-block secondry text-white">
                 <i class="fas fa-info-circle mr-2"></i>Details
               </button>
             </div>
@@ -73,10 +62,6 @@
     </div>
   </div>
   <div *ngIf="isFetched" class="mt-3 text-center text-white">
-    <pagination-controls
-      class="my-pagination"
-      id="hotels"
-      (pageChange)="pageChanged($event)"
-    ></pagination-controls>
+    <pagination-controls class="my-pagination" id="hotels" (pageChange)="pageChanged($event)"></pagination-controls>
   </div>
 </div>
