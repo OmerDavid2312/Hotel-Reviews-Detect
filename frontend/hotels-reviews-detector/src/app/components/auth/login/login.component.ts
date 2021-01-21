@@ -1,18 +1,18 @@
 import { User } from "./../../../models/User";
 import { Router } from "@angular/router";
 import { AuthService } from "./../../../services/auth.service";
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
 import { Subscription } from "rxjs";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  private subscription$: Subscription;
+export class LoginComponent implements OnInit {
   user: User;
   email: string;
   password: string;
@@ -42,7 +42,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.spinner.show();
     this.user = { email: this.email, password: this.password };
 
-    this.subscription$ = this.authSrv.loginUser(this.user).subscribe(
+     this.authSrv.loginUser(this.user)      
+     .pipe(take(1))
+     .subscribe(
       (response) => {
         //store token
         localStorage.setItem("token", response.token);
@@ -60,9 +62,4 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    if (this.subscription$) {
-      this.subscription$.unsubscribe();
-    }
-  }
 }

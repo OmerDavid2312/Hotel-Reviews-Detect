@@ -3,21 +3,20 @@ import { Hotel, Review, Reliability } from "./../../../models/Hotel";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Subscription } from "rxjs";
 import { HotelsService } from "src/app/services/hotels.service";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-hotel-details",
   templateUrl: "./hotel-details.component.html",
   styleUrls: ["./hotel-details.component.css"],
 })
-export class HotelDetailsComponent implements OnInit, OnDestroy {
+export class HotelDetailsComponent implements OnInit {
   hotel: Hotel;
   hotelId: string;
   cityName: string;
   isFetched: boolean = false;
 
-  private subscription$: Subscription;
 
   //paging
   page: number = 1;
@@ -42,8 +41,9 @@ export class HotelDetailsComponent implements OnInit, OnDestroy {
     this.cityName = this.route.snapshot.paramMap.get("cityName");
 
     this.spinner.show();
-    this.subscription$ = this.hotelsSrv
+       this.hotelsSrv
       .getHotelDetails(this.hotelId, this.cityName)
+      .pipe(take(1))
       .subscribe(
         (hotel) => {
           this.spinner.hide();
@@ -59,14 +59,7 @@ export class HotelDetailsComponent implements OnInit, OnDestroy {
 
   pageChanged(e) {
     this.page = e;
-    if (this.subscription$) {
-      this.subscription$.unsubscribe();
-    }
   }
 
-  ngOnDestroy() {
-    if (this.subscription$) {
-      this.subscription$.unsubscribe();
-    }
-  }
+
 }

@@ -19,26 +19,23 @@ import {
 import {
   HotelsService
 } from "src/app/services/hotels.service";
-import {
-  Subscription
-} from "rxjs";
+
 import {
   NgxSpinnerService
 } from "ngx-spinner";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-hotels",
   templateUrl: "./hotels.component.html",
   styleUrls: ["./hotels.component.css"],
 })
-export class HotelsComponent implements OnInit, OnDestroy {
+export class HotelsComponent implements OnInit {
   hotels: Hotel[];
   cityName: string;
   cityDetails: City;
   isFetched: boolean = false;
 
-  private cityHotelSubscription$: Subscription;
-  private cityDetailsSubscription$: Subscription;
 
   //paging
   page: number = 1;
@@ -70,8 +67,9 @@ export class HotelsComponent implements OnInit, OnDestroy {
         this.page = 1;
       }
       this.spinner.show();
-      this.cityHotelSubscription$ = this.hotelsSrv.getSortedHotelsByField(this.route.snapshot.paramMap.get("cityName"), 'class', 'desc', this.page)
-        .subscribe(hotels => {
+      this.hotelsSrv.getSortedHotelsByField(this.route.snapshot.paramMap.get("cityName"), 'class', 'desc', this.page)
+      .pipe(take(1))
+      .subscribe(hotels => {
           this.hotels = hotels.data;
           this.totalItem = hotels.count;
           this.activeSort = 'Class';
@@ -89,15 +87,17 @@ export class HotelsComponent implements OnInit, OnDestroy {
     this.cityName = this.route.snapshot.paramMap.get("cityName");
     this.spinner.show();
 
-    this.cityHotelSubscription$ = this.hotelsSrv
+    this.hotelsSrv
       .getCityHotels(this.cityName, this.page)
+      .pipe(take(1))
       .subscribe(
         (hotels) => {
           this.hotels = hotels.data;
           this.totalItem = hotels.count;
 
-          this.cityDetailsSubscription$ = this.citiesSrv
+          this.citiesSrv
             .getCityDetails(this.cityName)
+            .pipe(take(1))
             .subscribe(
               (cityDetails) => {
                 this.cityDetails = cityDetails;
@@ -118,21 +118,7 @@ export class HotelsComponent implements OnInit, OnDestroy {
 
   pageChanged(e) {
     this.page = e;
-    if (this.cityHotelSubscription$) {
-      this.cityHotelSubscription$.unsubscribe();
-    }
-    if (this.cityDetailsSubscription$) {
-      this.cityDetailsSubscription$.unsubscribe();
-    }
     this.sort(this.activeSort)
   }
 
-  ngOnDestroy() {
-    if (this.cityHotelSubscription$) {
-      this.cityHotelSubscription$.unsubscribe();
-    }
-    if (this.cityDetailsSubscription$) {
-      this.cityDetailsSubscription$.unsubscribe();
-    }
-  }
 }

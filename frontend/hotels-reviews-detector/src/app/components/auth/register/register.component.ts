@@ -4,15 +4,14 @@ import { AuthService } from "./../../../services/auth.service";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
-import { Subscription } from "rxjs";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.css"],
 })
-export class RegisterComponent implements OnInit, OnDestroy {
-  private subscription$: Subscription;
+export class RegisterComponent implements OnInit {
   user: User;
   email: string;
   password: string;
@@ -46,7 +45,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     this.user = { email: this.email, password: this.password, name: this.name };
 
-    this.subscription$ = this.authSrv.registerUser(this.user).subscribe(
+   this.authSrv.registerUser(this.user)  
+    .pipe(take(1))
+    .subscribe(
       (response) => {
         this.spinner.hide();
         this.toastSrv.success("You have successfully registered");
@@ -60,9 +61,4 @@ export class RegisterComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    if (this.subscription$) {
-      this.subscription$.unsubscribe();
-    }
-  }
 }
