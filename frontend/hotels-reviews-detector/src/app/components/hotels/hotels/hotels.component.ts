@@ -41,7 +41,7 @@ export class HotelsComponent implements OnInit {
   page: number = 1;
   totalItem: number;
 
-  activeSort: 'All' | 'Class' = 'All'
+  activeSort;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,25 +54,20 @@ export class HotelsComponent implements OnInit {
   ngOnInit() {
     this.getHotelsCity();
   }
+
   sort(sortType: 'All' | 'Class') {
+    this.activeSort !== sortType ? this.page = 1 : null;
+    this.activeSort = sortType;
     if (sortType === 'All') {
-      if (this.activeSort === 'Class') {
-        this.page = 1;
-      }
       this.getHotelsCity();
-      this.activeSort = 'All';
     }
     if (sortType === 'Class') {
-      if (this.activeSort === 'All') {
-        this.page = 1;
-      }
       this.spinner.show();
       this.hotelsSrv.getSortedHotelsByField(this.route.snapshot.paramMap.get("cityName"), 'class', 'desc', this.page)
       .pipe(take(1))
       .subscribe(hotels => {
           this.hotels = hotels.data;
           this.totalItem = hotels.count;
-          this.activeSort = 'Class';
           this.spinner.hide();
         }, err => {
           this.spinner.hide();
@@ -101,7 +96,6 @@ export class HotelsComponent implements OnInit {
             .subscribe(
               (cityDetails) => {
                 this.cityDetails = cityDetails;
-
                 this.spinner.hide();
                 this.isFetched = true;
               },

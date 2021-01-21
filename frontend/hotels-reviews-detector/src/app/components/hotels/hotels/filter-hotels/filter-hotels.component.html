@@ -1,0 +1,9 @@
+<div style="border-bottom: 1px solid gray;" class="pb-3 pt-3">
+
+    <i class="fas fa-sort"></i> Sort
+    <button (click)="setActiveSort('All')" [class.btn-main]="currentSortType === 'All'"
+      [class.btn-main-outline]="currentSortType !== 'All'" class="ml-2 btn">All</button>
+
+    <button (click)="setActiveSort('Class')" [class.btn-main]="currentSortType === 'Class'"
+      [class.btn-main-outline]="currentSortType !== 'Class'" class="ml-2 btn btn-main-outline">Class</button>
+     </div>

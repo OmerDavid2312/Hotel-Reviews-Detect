@@ -11,15 +11,7 @@
     </map-component>
   </div>
 
-  <div style="border-bottom: 1px solid gray;" class="pb-3 pt-3" *ngIf="isFetched">
-
-    <i class="fas fa-sort"></i> Sort
-    <button (click)="sort('All')" [class.btn-main]="activeSort === 'All'"
-      [class.btn-main-outline]="activeSort !== 'All'" class="ml-2 btn">All</button>
-
-    <button (click)="sort('Class')" [class.btn-main]="activeSort === 'Class'"
-      [class.btn-main-outline]="activeSort !== 'Class'" class="ml-2 btn btn-main-outline">Class</button>
-  </div>
+  <app-filter-hotels (activeSort)=sort($event)></app-filter-hotels>
 
   <div class="row mt-2" *ngIf="isFetched">
     <div *ngFor="
