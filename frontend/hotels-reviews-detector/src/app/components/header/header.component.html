@@ -29,6 +29,14 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto mr-2">
+
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a class="nav-link text-white" routerLink="/login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a class="nav-link text-white" routerLink="/register" routerLinkActive="active-link">Register</a>
+        </li>
+
         <div *ngIf="isLoggedIn" class="dropdown show">
           <a
             class="btn btn-info dropdown-toggle"

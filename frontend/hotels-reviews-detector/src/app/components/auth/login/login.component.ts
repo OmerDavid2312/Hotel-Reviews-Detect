@@ -50,6 +50,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token", response.token);
         //store username
         localStorage.setItem("user", response.user);
+        
+        //set login state to true 
+        this.authSrv.setLoginState();
+
         this.spinner.hide();
         this.toastSrv.success("You have successfully logged in");
         setTimeout(() => {
