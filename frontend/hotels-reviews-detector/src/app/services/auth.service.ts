@@ -8,8 +8,8 @@ import { Injectable } from "@angular/core";
 export class AuthService {
   private baseURL: string = "http://localhost:3000/api";
 
-  private isLoggedInSubject:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isLoggedIn());
-  public isLoggedIn$:Observable<boolean> = this.isLoggedInSubject.asObservable();
+  private _isLoggedInSubject:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isLoggedIn());
+  public isLoggedIn$:Observable<boolean> = this._isLoggedInSubject.asObservable();
   
   constructor(private http: HttpClient) {
 
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   public setLoginState(){
-    this.isLoggedInSubject.next(true);
+    this._isLoggedInSubject.next(true);
   }
 
   public logout(): void {
@@ -44,6 +44,6 @@ export class AuthService {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    this.isLoggedInSubject.next(false);
+    this._isLoggedInSubject.next(false);
   }
 }
