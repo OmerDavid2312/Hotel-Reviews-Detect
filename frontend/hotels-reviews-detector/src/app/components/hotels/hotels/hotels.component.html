@@ -29,9 +29,7 @@
         <div class="card-body">
           <div class="card-title font text">
             {{
-              hotel.name.length > 25
-                ? hotel.name.substring(0, 25) + "..."
-                : hotel.name
+               hotel.name | short
             }}
           </div>
           <span class="badge badge-pill badge-info">{{
