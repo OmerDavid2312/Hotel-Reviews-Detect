@@ -13,13 +13,13 @@ import { take } from "rxjs/operators";
 })
 export class CitiesComponent implements OnInit {
   cities: City[];
-
-  private subscription$: Subscription;
   isFetched: boolean = false;
 
   //paging
   page: number = 1;
   totalItem: number;
+
+  searchText:string = "";
 
   constructor(
     private citiesSrv: CitiesService,

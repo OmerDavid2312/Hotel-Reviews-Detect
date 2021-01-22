@@ -11,8 +11,10 @@
     </map-component>
   </div>
 
-  <app-filter-hotels (activeSort)=sort($event)></app-filter-hotels>
-
+  <div *ngIf="isFetched">
+    <app-filter-hotels (activeSort)=sort($event)></app-filter-hotels>
+  </div>
+  
   <div class="row mt-2" *ngIf="isFetched">
     <div *ngFor="
         let hotel of hotels

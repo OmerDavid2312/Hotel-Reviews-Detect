@@ -36,7 +36,10 @@ import { ReviewsComponent } from "./components/hotels/hotel-details/reviews/revi
 import { SideDetailsComponent } from "./components/hotels/hotel-details/side-details/side-details.component";
 import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels-near-by.component';
 import { FilterHotelsComponent } from './components/hotels/hotels/filter-hotels/filter-hotels.component';
+
+//pipes
 import { ShortPipe } from './pipes/short.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,8 @@ import { ShortPipe } from './pipes/short.pipe';
     SideDetailsComponent,
     HotelsNearByComponent,
     FilterHotelsComponent,
-    ShortPipe
+    ShortPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

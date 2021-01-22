@@ -36,7 +36,7 @@
 
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" [(ngModel)]="searchText"  placeholder="Search">
     </div>
   
   </div>
@@ -48,7 +48,8 @@
   <div class="row mt-2" *ngIf="isFetched">
     <div
       *ngFor="
-        let city of cities
+        let city of cities 
+          | filter:searchText:'name'
           | paginate
             : {
                 id: 'cities',
