@@ -48,3 +48,7 @@
   pointer-events: none;
   color: #aaa;
 }
+
+input.form-control{
+  color: var(--secondry) !important;
+}

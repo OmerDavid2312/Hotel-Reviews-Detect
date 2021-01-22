@@ -38,8 +38,9 @@ import { HotelsNearByComponent } from './components/hotels/hotels-near-by/hotels
 import { FilterHotelsComponent } from './components/hotels/hotels/filter-hotels/filter-hotels.component';
 
 //pipes
-import { ShortPipe } from './pipes/short.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+//directives
+import { ShorterDirective } from './directives/shorter.directive';
 
 @NgModule({
   declarations: [
@@ -56,8 +57,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     SideDetailsComponent,
     HotelsNearByComponent,
     FilterHotelsComponent,
-    ShortPipe,
-    FilterPipe
+    FilterPipe,
+    ShorterDirective
   ],
   imports: [
     BrowserModule,
