@@ -3,7 +3,7 @@ import { ReviewStats } from "../../../../models/Hotel";
 import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-reviews-box",
+  selector: "app-side-details",
   templateUrl: "./side-details.component.html",
   styleUrls: ["./side-details.component.css"],
 })

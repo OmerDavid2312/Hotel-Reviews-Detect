@@ -41,6 +41,7 @@ import { FilterHotelsComponent } from './components/hotels/hotels/filter-hotels/
 import { FilterPipe } from './pipes/filter.pipe';
 //directives
 import { ShorterDirective } from './directives/shorter.directive';
+import { ReviewRatingDirective } from './directives/review-rating.directive';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ShorterDirective } from './directives/shorter.directive';
     HotelsNearByComponent,
     FilterHotelsComponent,
     FilterPipe,
-    ShorterDirective
+    ShorterDirective,
+    ReviewRatingDirective
   ],
   imports: [
     BrowserModule,
