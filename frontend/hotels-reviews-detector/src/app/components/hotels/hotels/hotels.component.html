@@ -41,6 +41,9 @@
         <div class="card-footer text-muted">
           <div class="row">
             <div class="col text-white">
+              <button (click)="addHotelsToFavorite( hotel._id)" class="btn btn-block secondry text-white">
+                <i class="fab fa-gratipay mr-2"></i>Favorite
+              </button>
             </div>
             <div class="col">
               <button routerLink="{{ hotel._id }}" class="btn btn-block secondry text-white">

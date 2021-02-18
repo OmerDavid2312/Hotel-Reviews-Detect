@@ -40,5 +40,6 @@ export interface Hotel {
   city: string;
   country: string;
   reviews: Review[];
-  reviewStats?: ReviewStats;
+  reviewStats?: ReviewStats,
+  userFavorite?:string[]
 }

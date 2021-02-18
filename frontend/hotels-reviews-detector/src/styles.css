@@ -85,6 +85,7 @@ hr {
 }
 .my-pagination /deep/ .ngx-pagination .current {
   background: var(--secondry) !important;
+  margin-bottom: 40px  !important;
 }
 .my-pagination /deep/ .ngx-pagination a {
   color: white !important;
