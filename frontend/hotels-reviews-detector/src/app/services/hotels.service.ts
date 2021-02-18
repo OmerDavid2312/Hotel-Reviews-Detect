@@ -35,4 +35,16 @@ export class HotelsService {
       .get(`${this.baseURL}/hotels/hotelsnearby/${country}`)
       .toPromise();
   }
+
+
+  public getFavoriteHotels(): Observable<any>{
+    return this.http
+    .get<Hotel[]>(`${this.baseURL}/hotels/favorite`)
+  }
+
+  public addHotelToFavorite(hotelId:string): Observable<any>{
+    return this.http
+    .patch(`${this.baseURL}/hotels/favorite/${hotelId}`,{_id:hotelId})
+  }
+
 }

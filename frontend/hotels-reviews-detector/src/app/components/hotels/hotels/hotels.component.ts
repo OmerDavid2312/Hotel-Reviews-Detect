@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import {
   City
 } from "./../../../models/City";
@@ -48,7 +49,8 @@ export class HotelsComponent implements OnInit {
     private hotelsSrv: HotelsService,
     private router: Router,
     private citiesSrv: CitiesService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toast:ToastrService
   ) {}
 
   ngOnInit() {
@@ -108,6 +110,13 @@ export class HotelsComponent implements OnInit {
           this.spinner.hide();
         }
       );
+  }
+
+
+  addHotelsToFavorite(hotelId:string){
+    this.hotelsSrv.addHotelToFavorite(hotelId).pipe(take(1)).subscribe(res=>{
+      this.toast.success(res.message);
+    })
   }
 
   pageChanged(e) {

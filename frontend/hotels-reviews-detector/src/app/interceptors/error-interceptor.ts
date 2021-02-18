@@ -48,7 +48,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     } else if (err.status === 401) {
       //unauthorize
       this.toastSrv.error(error);
-    } else if (Number(err.status.toString()[0]) === 4) {
+    } 
+    else if(err.status === 404){
+      this.toastSrv.warning(error);
+    }
+    else if (Number(err.status.toString()[0]) === 4) {
       //client error (not found, etc ..)
       this.toastSrv.warning(error);
       this.router.navigateByUrl("/");

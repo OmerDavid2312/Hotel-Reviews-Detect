@@ -42,6 +42,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 //directives
 import { ShorterDirective } from './directives/shorter.directive';
 import { ReviewRatingDirective } from './directives/review-rating.directive';
+import { FavoriteHotelsComponent } from './components/hotels/favorite-hotels/favorite-hotels.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ReviewRatingDirective } from './directives/review-rating.directive';
     FilterHotelsComponent,
     FilterPipe,
     ShorterDirective,
-    ReviewRatingDirective
+    ReviewRatingDirective,
+    FavoriteHotelsComponent
   ],
   imports: [
     BrowserModule,

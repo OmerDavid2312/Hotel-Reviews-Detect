@@ -56,7 +56,9 @@ exports.getHotelDetail = async (req, res, next) => {
     if (!hotelid)
       return res.status(400).json({ message: "please provide hotel" });
 
-    const hotelDetail = await Hotel.findOne({ _id: hotelid });
+    const hotelDetail = await Hotel.findOne({ _id: hotelid }).select(
+      "name image rating about class reviewCount city country reviews"
+    );
     if (!hotelDetail)
       return res.status(404).json({ message: "cant find hotel" });
 
@@ -75,7 +77,7 @@ exports.getHotelsNearBy = async (req, res, next) => {
       return res.status(400).json({ message: "please provide a location" });
 
     const hotelsNearBy = await Hotel.find({ country: country })
-      .select("name image rating class reviewCount city country")
+      .select("name image aboutd rating class reviewCount city country")
       .limit(4);
 
     const count = await Hotel.find({ country: country }).countDocuments();
@@ -91,5 +93,50 @@ exports.getHotelsNearBy = async (req, res, next) => {
     res.status(200).json({ data: hotelsNearBy, count: count });
   } catch (error) {
     res.status(500).json({ message: "faild get hotel" });
+  }
+};
+
+exports.addToFavorite = async (req, res, next) => {
+  try {
+    const { hotelid } = req.params;
+    if (!hotelid)
+      return res.status(400).json({ message: "please provide hotel" });
+
+    const hotelDetail = await Hotel.findOne({ _id: hotelid });
+    if (!hotelDetail)
+      return res.status(404).json({ message: "cant find hotel" });
+
+    const isUserAlreadyAddedToFavorite = await Hotel.findOne({
+      _id: hotelid,
+      userFavorite: req.userData._id,
+    });
+    if (isUserAlreadyAddedToFavorite)
+      return res.status(404).json({ message: "Hotel already in favorite" });
+
+    await Hotel.updateOne(
+      { _id: hotelid },
+      { $push: { userFavorite: req.userData._id } }
+    );
+
+    res.status(201).json({ message: `successfully added hotel to favorite` });
+  } catch (error) {
+    res.status(500).json({ message: "faild add hotel to favorite" });
+  }
+};
+
+exports.getFavorite = async (req, res, next) => {
+  try {
+    const userId = req.userData._id;
+    const favoritesHotels = await Hotel.find({ userFavorite: userId }).select(
+      "name image rating class reviewCount city country"
+    );
+
+    if (favoritesHotels.length === 0)
+      return res.status(404).json({ message: "cant find favorite hotels" });
+
+    setCache(req.originalUrl, 36000, JSON.stringify(favoritesHotels));
+    return res.status(200).json(favoritesHotels);
+  } catch (error) {
+    res.status(500).json({ message: "can not get favorites hotels" });
   }
 };
