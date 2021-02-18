@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-.card {
-  margin: auto;
+.row {
+  margin: 0 auto;
   margin-top: 9rem;
+  align-items: center !important;
+  text-align: center !important;
 }
