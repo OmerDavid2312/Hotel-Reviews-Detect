@@ -9,6 +9,7 @@ export interface Review {
   desc: string;
   user: string;
   reliability?: Reliability.TRUTH | Reliability.DECEPTIVE;
+  categories?:Array<string>
 }
 
 export interface ReviewStats {

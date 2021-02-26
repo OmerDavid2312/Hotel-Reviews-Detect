@@ -1,10 +1,19 @@
 import { Reliability, Review, ReviewStats } from "./../models/Hotel";
 import { Injectable } from "@angular/core";
+export type reviewCategory =   "service" | "price" |"room" | "location" | "food" | "cleanliness"
 
 @Injectable({
   providedIn: "root",
 })
 export class ReviewsService {
+  public categories:Array<{type:string,icon:string}> = [
+    {type:"service",icon:"fas fa-concierge-bell"},
+    {type:"price",icon:"fas fa-dollar-sign"},
+    {type: "room",icon:"fab fa-intercom"},
+    {type:"location",icon:"fas fa-map-marker-alt"},
+    {type: "food",icon:"fas fa-utensils"},
+    {type:"cleanliness",icon:"fas fa-broom"},
+  ]
   constructor() {}
 
   public getReviewsStat(reviews: Review[]): ReviewStats {
@@ -63,5 +72,13 @@ export class ReviewsService {
     return reviews
       .map((review) => review.rating)
       .reduce((r, c) => ((r[c] = (r[c] || 0) + 1), r), {});
+  }
+
+   //@desc getReviewsSortedByCategory
+  public getReviewsSortedByCategory(reviews: Review[],categoryName?:reviewCategory | 'All'):Review[] {
+    if(categoryName !== 'All'){
+      return reviews.filter((review) => review.categories.includes(categoryName) );
+    }
+    return reviews
   }
 }

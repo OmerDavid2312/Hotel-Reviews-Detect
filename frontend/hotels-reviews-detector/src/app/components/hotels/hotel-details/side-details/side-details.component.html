@@ -136,7 +136,7 @@
     </div>
   </div>
 
-  <div style="margin-bottom: 20px !important; margin-top: 20px !important">
+  <div style="margin-bottom: 20px !important; margin-top: 20px !important" *ngIf="hotelAddress">
     <map-component [center]="{ lat: hotelGeo.lat, long: hotelGeo.long }" [landMarkName]="hotelName"></map-component>
   </div>
 </div>
