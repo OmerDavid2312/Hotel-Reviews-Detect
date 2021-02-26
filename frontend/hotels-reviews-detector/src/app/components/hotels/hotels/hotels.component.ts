@@ -42,7 +42,7 @@ export class HotelsComponent implements OnInit {
   page: number = 1;
   totalItem: number;
 
-  activeSort;
+  activeSort: 'All' | 'Class' = 'All';
 
   constructor(
     private route: ActivatedRoute,
