@@ -1,22 +1,36 @@
 # Hotel-Reviews-Detect
-BIU final project web application that contains:  backend, frontend, Scrapper and ML algorithm
-<hr>
-<h2>How to install</h2>
 
-*In order to install this project, Run the command : <b>npm install</b> <br>
-*Make sure to change ENV varibales by searching in project - <b>process.env</b>:
-<br>
-For example in : backend\controllers\users.js
+BIU final project web application that contains: backend, frontend, Scrapper and ML algorithm
+
 <hr>
+[![asciicast](https://ibb.co/R0LchsZ)](https://hotels-inside.herokuapp.com/)
+[![asciicast](https://ibb.co/yQqmnxm)](https://hotels-inside.herokuapp.com/)
+[![asciicast](https://ibb.co/pfPRkG2)](https://hotels-inside.herokuapp.com/)
+
+<h2>How to install</h2>
+*To install this project, Run the command : npm install <br>
+*Make sure to change ENV varibales: <br>
+for example in : backend/configs/mongo.js (MONGO). <br>
+<br>
+<hr>
+
 <h2>Technologies</h2>
 <b>Client Side:</b> Angular, TypeScript <br>
 <b>Server Side:</b> Node.js, Express, JWT, Mongo, Redis <br>
 <b>Scrapper:</b> Node.js, cheerio, puppeteer <br>
 <b>Machine Learning:</b> Python <br>
 <hr>
-<h2>Road Map</h2>
-<p>Implement ML with server (Flask) in order to communicate with the serverside</p>
-<p>Create client side with Angular</p>
-<p>Support & Deploy each module to the cloud (like heroku or AWS)</p>
 
+<h2>Features</h2>
+<ul>
+  <li>Remove fake reviews, Re-calculate the new rating score per hotel and Filter hotel review by category using NLP </li>
+  <li>Secure Authentication - Register and Login with Authentication (JWT)</li>
+  <li>Present the most popular hotels in each city, Search and filter options for your convenience, Provide information for 13 cities across the world</li>
+  <li>Hotels nearby - Find user's location and search for hotels nearby, Fit the local language according to location
+  </li>
+  <li>Add your favorite hotels to the favorite section</li>
+  <li>and More ...  </li>
 
+</ul>
+<hr>
+<br><br>
