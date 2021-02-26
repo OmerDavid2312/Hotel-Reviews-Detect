@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class AuthService {
-  private baseURL: string = "http://localhost:3000/api";
+  private baseURL: string = "https://hotels-inside-server.herokuapp.com/api";
 
   private _isLoggedInSubject:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isLoggedIn());
   public isLoggedIn$:Observable<boolean> = this._isLoggedInSubject.asObservable();

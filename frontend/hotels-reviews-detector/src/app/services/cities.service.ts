@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class CitiesService {
-  private baseURL: string = "http://localhost:3000/api";
+  private baseURL: string = "https://hotels-inside-server.herokuapp.com/api";
 
   constructor(private http: HttpClient) {}
 
