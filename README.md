@@ -2,10 +2,11 @@
 
 BIU final project web application that contains: backend, frontend, Scrapper and ML algorithm
 
+<h2>https://hotels-inside.herokuapp.com</h2>
 <hr>
-[![asciicast](https://ibb.co/R0LchsZ)](https://hotels-inside.herokuapp.com/)
-[![asciicast](https://ibb.co/yQqmnxm)](https://hotels-inside.herokuapp.com/)
-[![asciicast](https://ibb.co/pfPRkG2)](https://hotels-inside.herokuapp.com/)
+<img src="https://ibb.co/R0LchsZ"/>
+<img src="https://ibb.co/yQqmnxm"/>
+<img src="https://ibb.co/pfPRkG2"/>
 
 <h2>How to install</h2>
 *To install this project, Run the command : npm install <br>
