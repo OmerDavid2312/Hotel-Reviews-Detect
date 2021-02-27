@@ -9,6 +9,7 @@ export class ReviewRatingDirective implements AfterContentInit {
 
   ngAfterContentInit() {
     let rating = Number(this.el.nativeElement.innerText)
+    
     switch (rating) {
       case 5:
         this.el.nativeElement.style.color = '#28a745'
@@ -23,11 +24,11 @@ export class ReviewRatingDirective implements AfterContentInit {
         break;
 
       case 2:
-        this.el.nativeElement.style.color = '#28a745'
+        this.el.nativeElement.style.color = '#dc3545'
         break;
 
       case 1:
-        this.el.nativeElement.style.color = '#28a745'
+        this.el.nativeElement.style.color = '#dc3545'
         break;
     
       default:
