@@ -1,6 +1,6 @@
 import { Reliability, Review, ReviewStats } from "./../models/Hotel";
 import { Injectable } from "@angular/core";
-export type reviewCategory =   "service" | "price" |"room" | "location" | "food" | "cleanliness"
+export type reviewCategory =   "service"  |"room" | "location" | "food" | "cleanliness"
 
 @Injectable({
   providedIn: "root",
@@ -8,7 +8,7 @@ export type reviewCategory =   "service" | "price" |"room" | "location" | "food"
 export class ReviewsService {
   public categories:Array<{type:string,icon:string}> = [
     {type:"service",icon:"fas fa-concierge-bell"},
-    {type:"price",icon:"fas fa-dollar-sign"},
+    // {type:"price",icon:"fas fa-dollar-sign"},
     {type: "room",icon:"fab fa-intercom"},
     {type:"location",icon:"fas fa-map-marker-alt"},
     {type: "food",icon:"fas fa-utensils"},
