@@ -39,7 +39,7 @@
             <span reviewRating
               class="mb-2 mr-3 float-left  font-weight-bold"
             >
-              <i class="far fa-frown mr-1 "></i>
+              <i  [ngClass]="getIcon(review.rating)"></i>
               {{ review.rating }}
             </span>
           </div>

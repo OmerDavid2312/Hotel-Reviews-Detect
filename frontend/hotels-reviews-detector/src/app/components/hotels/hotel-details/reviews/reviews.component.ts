@@ -38,4 +38,23 @@ export class ReviewsComponent implements OnInit {
     this.totalItem = this.reviews.length;
     this.page = 1
   }
+
+  getIcon(rating):string{
+    if(rating == 1){
+      return "far fa-frown mr-1"
+    }
+    if(rating == 2){
+      return "far fa-frown mr-1"
+    }
+    if(rating == 3){
+      return "far fa-meh mr-1"
+    }
+    if(rating == 4){
+      return "far fa-smile-beam mr-1"
+    }
+    if(rating == 5){
+      return "far fa-smile-beam mr-1"
+    }
+
+  }
 }
