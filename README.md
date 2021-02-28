@@ -4,14 +4,16 @@ BIU final project web application that contains: backend, frontend, Scrapper and
 
 <h2>https://hotels-inside.herokuapp.com</h2>
 <hr>
-<img src="https://ibb.co/R0LchsZ"/>
-<img src="https://ibb.co/yQqmnxm"/>
-<img src="https://ibb.co/pfPRkG2"/>
+![alt text](https://ibb.co/R0LchsZ)
+![alt text](https://ibb.co/yQqmnxm)
+![alt text](https://ibb.co/pfPRkG2)
 
 <h2>How to install</h2>
 *To install this project, Run the command : npm install <br>
 *Make sure to change ENV varibales: <br>
 for example in : backend/configs/mongo.js (MONGO). <br>
+*run with npm start from both backend folder and frontend start in order to run both client side and server side. <br>
+
 <br>
 <hr>
 
