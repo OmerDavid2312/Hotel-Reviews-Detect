@@ -4,9 +4,14 @@ BIU final project web application that contains: backend, frontend, Scrapper and
 
 <h2>https://hotels-inside.herokuapp.com</h2>
 <hr>
-![alt text](https://imgur.com/gkBgGA8)
-![alt text](https://imgur.com/huUWW1V)
-![alt text](https://imgur.com/v0X2ZlK)
+![gkBgGA8](https://user-images.githubusercontent.com/57843379/111769388-da6b8300-88b1-11eb-8db0-1cdb17ea0dd1.png)
+
+![huUWW1V](https://user-images.githubusercontent.com/57843379/111769431-e5261800-88b1-11eb-8f13-fe173c752f73.png)
+
+![v0X2ZlK](https://user-images.githubusercontent.com/57843379/111769460-ec4d2600-88b1-11eb-8c02-6e4c8b8a6437.jpeg)
+
+
+
 
 <h2>How to install</h2>
 *To install this project, Run the command : npm install <br>
