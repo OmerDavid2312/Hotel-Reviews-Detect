@@ -4,7 +4,9 @@ BIU final project web application that contains: backend, frontend, Scrapper and
 
 <h2>https://hotels-inside.herokuapp.com</h2>
 <hr>
-![gkBgGA8](https://user-images.githubusercontent.com/57843379/111769388-da6b8300-88b1-11eb-8db0-1cdb17ea0dd1.png)
+
+![gkBgGA8](https://user-images.githubusercontent.com/57843379/111769520-fe2ec900-88b1-11eb-8391-2aae93606744.png)
+
 
 ![huUWW1V](https://user-images.githubusercontent.com/57843379/111769431-e5261800-88b1-11eb-8f13-fe173c752f73.png)
 
